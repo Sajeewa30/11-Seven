@@ -25,8 +25,8 @@ function Chip({ href, label, active }: { href: string; label: string; active: bo
       aria-current={active ? "page" : undefined}
       className={`rounded-full border px-5 py-2.5 text-[0.74rem] font-bold uppercase tracking-[0.18em] transition-all ${
         active
-          ? "border-gold-500 bg-gold-500 text-ink shadow-gold"
-          : "border-gold-500/25 text-cream-muted hover:border-gold-500/60 hover:text-gold-200"
+          ? "border-maroon-700 bg-maroon-700 text-cream shadow-lift"
+          : "border-gold-600/40 text-ink-muted hover:border-maroon-700 hover:text-maroon-500"
       }`}
     >
       {label}
@@ -67,9 +67,9 @@ export default async function ShopPage({ searchParams }: ShopPageProps) {
       </PageHero>
 
       <section className="container-x">
-        <div className="flex items-center justify-between border-b border-gold-500/15 pb-5 text-sm text-cream-muted">
+        <div className="flex items-center justify-between border-b border-gold-600/30 pb-5 text-sm text-ink-muted">
           <p>
-            <span className="font-semibold text-cream">{list.length}</span> {list.length === 1 ? "product" : "products"}
+            <span className="font-semibold text-ink">{list.length}</span> {list.length === 1 ? "product" : "products"}
           </p>
           <p className="hidden sm:block">Prices in LKR · In-store stock</p>
         </div>
@@ -87,8 +87,8 @@ export default async function ShopPage({ searchParams }: ShopPageProps) {
         <Reveal>
           <div className="surface flex flex-col items-start justify-between gap-6 rounded-card p-8 sm:flex-row sm:items-center lg:p-10">
             <div>
-              <h2 className="font-display text-3xl text-cream sm:text-4xl">Don’t see what you need?</h2>
-              <p className="mt-2 max-w-lg text-cream-muted">
+              <h2 className="font-display text-3xl text-ink sm:text-4xl">Don’t see what you need?</h2>
+              <p className="mt-2 max-w-lg text-ink-muted">
                 We stock far more than what’s online. Ask us — we’ll check the shelf and hold it for you.
               </p>
             </div>

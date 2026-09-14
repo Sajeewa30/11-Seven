@@ -19,23 +19,23 @@ export default function CategoryShowcase() {
           <Reveal key={c.slug} delay={i * 90} className={layout[c.slug]}>
             <Link
               href={`/shop?category=${c.slug}`}
-              className="surface group relative block h-full min-h-[inherit] overflow-hidden rounded-card transition-all duration-500 hover:border-gold-500/45"
+              className="surface group relative block h-full min-h-[inherit] overflow-hidden rounded-card transition-all duration-500 hover:border-maroon-500/40"
             >
               <div className="absolute inset-0 transition-transform duration-[1200ms] ease-out group-hover:scale-[1.05]">
                 <PlaceholderArt category={c.slug} seed={i + 1} />
               </div>
-              <div className="absolute inset-0 bg-linear-to-t from-ink/95 via-ink/35 to-transparent" />
+              <div className="absolute inset-0 bg-linear-to-t from-paper via-paper/60 to-transparent" />
 
-              <div className="absolute left-6 top-6 flex items-center gap-3 text-[0.68rem] font-bold uppercase tracking-[0.26em] text-gold-400">
+              <div className="absolute left-6 top-6 flex items-center gap-3 text-[0.68rem] font-bold uppercase tracking-[0.26em] text-maroon-700">
                 <span>{c.index}</span>
-                <span className="h-px w-8 bg-gold-500/60" />
+                <span className="h-px w-8 bg-gold-600/60" />
                 <span>{count} products</span>
               </div>
 
               <div className="absolute inset-x-0 bottom-0 p-6 lg:p-8">
-                <h3 className="font-display text-4xl leading-none text-cream lg:text-5xl">{c.name}</h3>
-                <p className="mt-3 max-w-md text-sm text-cream-muted lg:text-base">{c.tagline}</p>
-                <span className="mt-5 inline-flex items-center gap-2 text-[0.78rem] font-semibold uppercase tracking-[0.18em] text-gold-300">
+                <h3 className="font-display text-4xl leading-none text-ink lg:text-5xl">{c.name}</h3>
+                <p className="mt-3 max-w-md text-sm text-ink-muted lg:text-base">{c.tagline}</p>
+                <span className="mt-5 inline-flex items-center gap-2 text-[0.78rem] font-semibold uppercase tracking-[0.18em] text-maroon-700">
                   Browse
                   <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1.5" />
                 </span>

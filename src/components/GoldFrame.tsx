@@ -3,7 +3,7 @@
  * grand-opening invitation. Desktop only, purely visual, never intercepts clicks.
  */
 export default function GoldFrame() {
-  const line = "absolute bg-gold-500/40";
+  const line = "absolute bg-gold-600/50";
   return (
     <div aria-hidden className="pointer-events-none fixed inset-0 z-[70] hidden lg:block">
       <span className={`${line} left-2 right-2 top-5 h-px`} />

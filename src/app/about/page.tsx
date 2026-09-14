@@ -85,7 +85,7 @@ export default function AboutPage() {
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
           <Reveal className="lg:col-span-5">
             <figure className="relative mx-auto max-w-sm lg:max-w-none">
-              <div className="absolute -inset-3 -rotate-2 rounded-card border border-gold-500/25" aria-hidden />
+              <div className="absolute -inset-3 -rotate-2 rounded-card border border-gold-600/40" aria-hidden />
               <div className="surface relative aspect-[4/5] overflow-hidden rounded-card">
                 <Image
                   src="/brand/grand-opening-invitation.jpeg"
@@ -96,7 +96,7 @@ export default function AboutPage() {
                   className="object-cover object-top"
                 />
               </div>
-              <figcaption className="mt-5 text-center text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-cream-dim">
+              <figcaption className="mt-5 text-center text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-ink-dim">
                 Our grand-opening invitation · {site.grandOpening}
               </figcaption>
             </figure>
@@ -104,18 +104,18 @@ export default function AboutPage() {
 
           <Reveal delay={120} className="lg:col-span-7">
             <p className="eyebrow flex items-center gap-3">
-              <span className="h-px w-8 bg-gold-500/70" />
+              <span className="h-px w-8 bg-gold-600/70" />
               Our story
             </p>
-            <h2 className="mt-5 font-display text-4xl leading-[1.02] text-cream sm:text-5xl lg:text-[3.5rem]">
+            <h2 className="mt-5 font-display text-4xl leading-[1.02] text-ink sm:text-5xl lg:text-[3.5rem]">
               It started with a book list and a broken charger.
             </h2>
-            <div className="mt-6 space-y-5 text-lg leading-relaxed text-cream-muted">
+            <div className="mt-6 space-y-5 text-lg leading-relaxed text-ink-muted">
               {story.map((para) => (
                 <p key={para.slice(0, 24)}>{para}</p>
               ))}
             </div>
-            <blockquote className="mt-10 border-l-2 border-gold-500 pl-6 font-display text-3xl leading-tight text-cream sm:text-4xl">
+            <blockquote className="mt-10 border-l-2 border-gold-600 pl-6 font-display text-3xl leading-tight text-ink sm:text-4xl">
               “Placeholder quote from the owner — one sentence on what the shop stands for.”
             </blockquote>
           </Reveal>
@@ -130,12 +130,12 @@ export default function AboutPage() {
         <div className="mt-12 grid gap-5 md:grid-cols-3">
           {values.map(({ Icon, title, text }, i) => (
             <Reveal key={title} delay={i * 90}>
-              <div className="surface group h-full rounded-card p-8 transition-colors hover:border-gold-500/40">
-                <span className="grid h-12 w-12 place-items-center rounded-full bg-gold-500/10 text-gold-400 transition-colors group-hover:bg-gold-500 group-hover:text-ink">
+              <div className="surface group h-full rounded-card p-8 transition-colors hover:border-maroon-500/40">
+                <span className="grid h-12 w-12 place-items-center rounded-full bg-maroon-700/10 text-maroon-700 transition-colors group-hover:bg-maroon-700 group-hover:text-cream">
                   <Icon size={22} />
                 </span>
-                <h3 className="mt-8 font-display text-3xl text-cream">{title}</h3>
-                <p className="mt-3 leading-relaxed text-cream-muted">{text}</p>
+                <h3 className="mt-8 font-display text-3xl text-ink">{title}</h3>
+                <p className="mt-3 leading-relaxed text-ink-muted">{text}</p>
               </div>
             </Reveal>
           ))}
@@ -148,14 +148,14 @@ export default function AboutPage() {
           <Reveal className="lg:col-span-4">
             <SectionHeading eyebrow="Milestones" title="Where we’ve been, where we’re going." />
           </Reveal>
-          <ol className="relative space-y-10 border-l border-gold-500/20 pl-8 lg:col-span-8 lg:pl-12">
+          <ol className="relative space-y-10 border-l border-gold-600/35 pl-8 lg:col-span-8 lg:pl-12">
             {milestones.map((m, i) => (
               <Reveal key={m.what} delay={i * 90}>
                 <li className="relative">
-                  <span className="absolute -left-[2.55rem] top-1.5 h-3 w-3 rounded-full border-2 border-gold-500 bg-coal lg:-left-[3.55rem]" />
-                  <p className="text-[0.7rem] font-bold uppercase tracking-[0.24em] text-gold-500">{m.when}</p>
-                  <h3 className="mt-2 font-display text-3xl text-cream">{m.what}</h3>
-                  <p className="mt-2 max-w-xl text-cream-muted">{m.text}</p>
+                  <span className="absolute -left-[2.55rem] top-1.5 h-3 w-3 rounded-full border-2 border-maroon-700 bg-page lg:-left-[3.55rem]" />
+                  <p className="text-[0.7rem] font-bold uppercase tracking-[0.24em] text-gold-700">{m.when}</p>
+                  <h3 className="mt-2 font-display text-3xl text-ink">{m.what}</h3>
+                  <p className="mt-2 max-w-xl text-ink-muted">{m.text}</p>
                 </li>
               </Reveal>
             ))}
@@ -176,14 +176,14 @@ export default function AboutPage() {
           {team.map((t, i) => (
             <Reveal key={t.name} delay={i * 90}>
               <div className="surface rounded-card p-6 text-center">
-                <div className="relative mx-auto aspect-square w-full max-w-[220px] overflow-hidden rounded-full border border-gold-500/25 bg-linear-to-br from-maroon-800 to-ink">
-                  <span className="absolute inset-0 grid place-items-center font-display text-6xl text-gold-sheen">{t.initials}</span>
-                  <span className="absolute inset-x-0 bottom-4 text-[0.55rem] font-bold uppercase tracking-[0.22em] text-gold-600/70">
+                <div className="relative mx-auto aspect-square w-full max-w-[220px] overflow-hidden rounded-full border border-gold-600/40 bg-linear-to-br from-linen to-sand">
+                  <span className="absolute inset-0 grid place-items-center font-display text-6xl text-maroon-700">{t.initials}</span>
+                  <span className="absolute inset-x-0 bottom-4 text-[0.55rem] font-bold uppercase tracking-[0.22em] text-gold-700/70">
                     Photo placeholder
                   </span>
                 </div>
-                <h3 className="mt-6 text-lg font-semibold text-cream">{t.name}</h3>
-                <p className="mt-1 text-sm text-cream-muted">{t.role}</p>
+                <h3 className="mt-6 text-lg font-semibold text-ink">{t.name}</h3>
+                <p className="mt-1 text-sm text-ink-muted">{t.role}</p>
               </div>
             </Reveal>
           ))}

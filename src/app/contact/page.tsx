@@ -69,8 +69,8 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
         <div className="grid gap-8 lg:grid-cols-12">
           <Reveal className="lg:col-span-7">
             <div className="surface rounded-card p-6 sm:p-10">
-              <h2 className="font-display text-3xl text-cream sm:text-4xl">Send a message</h2>
-              <p className="mt-2 text-sm text-cream-muted">We reply within one working day.</p>
+              <h2 className="font-display text-3xl text-ink sm:text-4xl">Send a message</h2>
+              <p className="mt-2 text-sm text-ink-muted">We reply within one working day.</p>
               <div className="mt-8">
                 <ContactForm defaultTopic={topic} />
               </div>
@@ -84,31 +84,31 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
                   href={c.href}
                   target={c.external ? "_blank" : undefined}
                   rel={c.external ? "noreferrer" : undefined}
-                  className="surface group flex items-center gap-5 rounded-tile p-5 transition-all hover:border-gold-500/45"
+                  className="surface group flex items-center gap-5 rounded-tile p-5 transition-all hover:border-maroon-500/40"
                 >
-                  <span className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-gold-500/10 text-gold-400 transition-colors group-hover:bg-gold-500 group-hover:text-ink">
+                  <span className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-maroon-700/10 text-maroon-700 transition-colors group-hover:bg-maroon-700 group-hover:text-cream">
                     <c.Icon size={20} />
                   </span>
                   <span className="min-w-0 flex-1">
-                    <span className="block text-[0.66rem] font-bold uppercase tracking-[0.22em] text-gold-600">{c.label}</span>
-                    <span className="mt-1 block truncate font-semibold text-cream">{c.value}</span>
-                    <span className="mt-0.5 block text-xs text-cream-dim">{c.note}</span>
+                    <span className="block text-[0.66rem] font-bold uppercase tracking-[0.22em] text-gold-700">{c.label}</span>
+                    <span className="mt-1 block truncate font-semibold text-ink">{c.value}</span>
+                    <span className="mt-0.5 block text-xs text-ink-dim">{c.note}</span>
                   </span>
-                  <ArrowUpRight size={18} className="shrink-0 text-cream-dim transition-colors group-hover:text-gold-300" />
+                  <ArrowUpRight size={18} className="shrink-0 text-ink-dim transition-colors group-hover:text-maroon-700" />
                 </a>
               </Reveal>
             ))}
 
             <Reveal delay={400}>
               <div className="surface rounded-tile p-5">
-                <p className="flex items-center gap-3 text-[0.66rem] font-bold uppercase tracking-[0.22em] text-gold-600">
+                <p className="flex items-center gap-3 text-[0.66rem] font-bold uppercase tracking-[0.22em] text-gold-700">
                   <Clock size={16} />
                   Opening hours
                 </p>
                 <ul className="mt-4 space-y-2 text-sm">
                   {site.hours.map((h) => (
-                    <li key={h.days} className="flex justify-between gap-4 text-cream-muted">
-                      <span className="text-cream">{h.days}</span>
+                    <li key={h.days} className="flex justify-between gap-4 text-ink-muted">
+                      <span className="text-ink">{h.days}</span>
                       <span className="tabular-nums">{h.time}</span>
                     </li>
                   ))}

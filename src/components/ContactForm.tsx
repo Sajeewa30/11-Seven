@@ -20,8 +20,8 @@ interface ContactFormProps {
 }
 
 const field =
-  "w-full rounded-xl border border-gold-500/20 bg-ink/60 px-4 py-3.5 text-[0.95rem] text-cream placeholder:text-cream-dim transition-colors focus:border-gold-500/70 focus:outline-none";
-const labelCls = "mb-2 block text-[0.7rem] font-bold uppercase tracking-[0.2em] text-gold-500";
+  "w-full rounded-xl border border-gold-600/35 bg-paper px-4 py-3.5 text-[0.95rem] text-ink placeholder:text-ink-dim transition-colors focus:border-maroon-600 focus:outline-none";
+const labelCls = "mb-2 block text-[0.7rem] font-bold uppercase tracking-[0.2em] text-gold-700";
 
 export default function ContactForm({ defaultTopic }: ContactFormProps) {
   const initialTopic: TopicValue = topics.some((t) => t.value === defaultTopic)
@@ -61,18 +61,18 @@ export default function ContactForm({ defaultTopic }: ContactFormProps) {
 
   if (status === "sent") {
     return (
-      <div className="flex h-full flex-col items-center justify-center rounded-card border border-gold-500/25 bg-maroon-950/60 p-10 text-center">
-        <span className="grid h-16 w-16 place-items-center rounded-full bg-gold-500 text-ink shadow-gold">
+      <div className="flex h-full flex-col items-center justify-center rounded-card border border-gold-600/40 bg-linen p-10 text-center">
+        <span className="grid h-16 w-16 place-items-center rounded-full bg-maroon-700 text-cream shadow-lift">
           <Check size={30} />
         </span>
-        <h3 className="mt-6 font-display text-4xl text-cream">Message received.</h3>
-        <p className="mt-3 max-w-sm text-cream-muted">
+        <h3 className="mt-6 font-display text-4xl text-ink">Message received.</h3>
+        <p className="mt-3 max-w-sm text-ink-muted">
           Thanks — we’ll get back to you within one working day. For anything urgent, give the shop a call.
         </p>
         <button
           type="button"
           onClick={() => setStatus("idle")}
-          className="link-draw mt-8 text-sm font-semibold uppercase tracking-[0.18em] text-gold-400"
+          className="link-draw mt-8 text-sm font-semibold uppercase tracking-[0.18em] text-maroon-700"
         >
           Send another
         </button>
@@ -95,24 +95,24 @@ export default function ContactForm({ defaultTopic }: ContactFormProps) {
             Name
           </label>
           <input id="name" name="name" className={field} placeholder="Your name" autoComplete="name" required />
-          {errors.name && <p className="mt-2 text-xs text-maroon-400">{errors.name}</p>}
+          {errors.name && <p className="mt-2 text-xs text-maroon-600">{errors.name}</p>}
         </div>
         <div>
           <label htmlFor="phone" className={labelCls}>
             Phone
           </label>
           <input id="phone" name="phone" type="tel" className={field} placeholder="07X XXX XXXX" autoComplete="tel" />
-          {errors.phone && <p className="mt-2 text-xs text-maroon-400">{errors.phone}</p>}
+          {errors.phone && <p className="mt-2 text-xs text-maroon-600">{errors.phone}</p>}
         </div>
       </div>
 
       <div className="grid gap-6 sm:grid-cols-2">
         <div>
           <label htmlFor="email" className={labelCls}>
-            Email <span className="normal-case tracking-normal text-cream-dim">(optional)</span>
+            Email <span className="normal-case tracking-normal text-ink-dim">(optional)</span>
           </label>
           <input id="email" name="email" type="email" className={field} placeholder="you@example.com" autoComplete="email" />
-          {errors.email && <p className="mt-2 text-xs text-maroon-400">{errors.email}</p>}
+          {errors.email && <p className="mt-2 text-xs text-maroon-600">{errors.email}</p>}
         </div>
         <div>
           <label htmlFor="topic" className={labelCls}>
@@ -140,7 +140,7 @@ export default function ContactForm({ defaultTopic }: ContactFormProps) {
           placeholder="What can we help with?"
           required
         />
-        {errors.message && <p className="mt-2 text-xs text-maroon-400">{errors.message}</p>}
+        {errors.message && <p className="mt-2 text-xs text-maroon-600">{errors.message}</p>}
       </div>
 
       <div className="flex flex-wrap items-center gap-4">
@@ -149,7 +149,7 @@ export default function ContactForm({ defaultTopic }: ContactFormProps) {
           <ArrowRight size={18} />
         </Button>
         {status === "error" && (
-          <p className="text-sm text-maroon-400">Something went wrong — please try again or call us.</p>
+          <p className="text-sm text-maroon-600">Something went wrong — please try again or call us.</p>
         )}
       </div>
     </form>

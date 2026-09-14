@@ -31,18 +31,18 @@ const items = [
 export default function ValueProps() {
   return (
     <section className="container-x py-20 lg:py-28">
-      <div className="grid gap-px overflow-hidden rounded-card border border-gold-500/15 bg-gold-500/10 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="grid gap-px overflow-hidden rounded-card border border-gold-600/30 bg-sand sm:grid-cols-2 lg:grid-cols-4">
         {items.map(({ n, Icon, title, text }, i) => (
-          <Reveal key={n} delay={i * 80} className="bg-coal">
-            <div className="group h-full p-8 transition-colors hover:bg-charcoal">
+          <Reveal key={n} delay={i * 80} className="bg-page">
+            <div className="group h-full p-8 transition-colors hover:bg-linen">
               <div className="flex items-center justify-between">
-                <span className="grid h-11 w-11 place-items-center rounded-full border border-gold-500/30 text-gold-400 transition-colors group-hover:border-gold-400 group-hover:bg-gold-500/10">
+                <span className="grid h-11 w-11 place-items-center rounded-full border border-gold-600/40 text-maroon-700 transition-colors group-hover:border-maroon-700 group-hover:bg-maroon-700/10">
                   <Icon size={19} />
                 </span>
                 <span className="font-display text-2xl text-gold-700">{n}</span>
               </div>
-              <h3 className="mt-8 text-lg font-semibold text-cream">{title}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-cream-muted">{text}</p>
+              <h3 className="mt-8 text-lg font-semibold text-ink">{title}</h3>
+              <p className="mt-3 text-sm leading-relaxed text-ink-muted">{text}</p>
             </div>
           </Reveal>
         ))}

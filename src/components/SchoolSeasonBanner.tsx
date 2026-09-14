@@ -9,15 +9,15 @@ const books = [
   { w: "w-[80%]", bg: "bg-smoke", label: "Exercise books × 10" },
 ];
 
+/** Deep-maroon accent panel — one of the few intentionally dark surfaces on the light site. */
 export default function SchoolSeasonBanner() {
   return (
-    <div className="relative overflow-hidden rounded-card border border-gold-500/25 bg-linear-to-br from-maroon-700 via-maroon-900 to-ink">
+    <div className="relative overflow-hidden rounded-card border border-gold-500/30 bg-linear-to-br from-maroon-700 via-maroon-900 to-coal shadow-card">
       <div className="pointer-events-none absolute -right-20 -top-32 h-[420px] w-[420px] rounded-full bg-gold-500/15 blur-[110px]" />
-      <div className="dot-grid pointer-events-none absolute inset-0 opacity-60 [mask-image:linear-gradient(to_left,black,transparent_60%)]" />
 
       <div className="relative grid gap-12 p-8 sm:p-12 lg:grid-cols-12 lg:items-center lg:p-16">
         <div className="lg:col-span-7">
-          <p className="eyebrow flex items-center gap-3 text-gold-300">
+          <p className="flex items-center gap-3 text-[0.72rem] font-semibold uppercase tracking-[0.28em] text-gold-300">
             <Book size={16} />
             Coming this school season
           </p>
@@ -29,11 +29,11 @@ export default function SchoolSeasonBanner() {
             checkout. Pre-orders open before the new term — leave your number and we’ll tell you first.
           </p>
           <div className="mt-9 flex flex-wrap gap-4">
-            <Button href="/contact?topic=school-books" size="lg">
+            <Button href="/contact?topic=school-books" variant="gold" size="lg">
               Get notified
               <ArrowRight size={18} />
             </Button>
-            <Button href={`tel:${site.phone.tel}`} variant="outline" size="lg">
+            <Button href={`tel:${site.phone.tel}`} variant="outlineLight" size="lg">
               <PhoneCall size={18} />
               Call to pre-order
             </Button>
@@ -42,7 +42,7 @@ export default function SchoolSeasonBanner() {
 
         {/* CSS-only book stack illustration */}
         <div className="relative mx-auto w-full max-w-sm lg:col-span-5" aria-hidden>
-          <div className="absolute inset-x-8 bottom-4 h-10 rounded-full bg-ink/70 blur-2xl" />
+          <div className="absolute inset-x-8 bottom-4 h-10 rounded-full bg-coal/70 blur-2xl" />
           <div className="relative space-y-2.5">
             {books.map((b, i) => (
               <div
@@ -54,9 +54,9 @@ export default function SchoolSeasonBanner() {
               </div>
             ))}
           </div>
-          <div className="mt-6 flex items-center justify-center gap-3 text-[0.68rem] font-bold uppercase tracking-[0.22em] text-gold-400">
+          <div className="mt-6 flex items-center justify-center gap-3 text-[0.68rem] font-bold uppercase tracking-[0.22em] text-gold-300">
             <span className="rounded-full border border-gold-500/40 px-3 py-1.5">Pay in 3 with KOKO</span>
-            <span className="text-cream-dim">Coming soon</span>
+            <span className="text-cream-muted">Coming soon</span>
           </div>
         </div>
       </div>

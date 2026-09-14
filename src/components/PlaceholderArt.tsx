@@ -10,10 +10,11 @@ interface PlaceholderArtProps {
   className?: string;
 }
 
+/* Light "paper" tiles: cream-to-white gradient, gold line patterns, maroon glow, gold→maroon glyph. */
 const palettes: Record<CategorySlug, { from: string; to: string; accent: string; glow: string }> = {
-  stationery: { from: "#3d0c17", to: "#0f0a0c", accent: "#d6a648", glow: "#a52541" },
-  "phone-accessories": { from: "#221619", to: "#070506", accent: "#e5be5e", glow: "#6b1428" },
-  "gym-nutrition": { from: "#561120", to: "#1a0508", accent: "#f0d488", glow: "#c43a58" },
+  stationery: { from: "#fbf3e8", to: "#ffffff", accent: "#8f651c", glow: "#c43a58" },
+  "phone-accessories": { from: "#f3ede7", to: "#ffffff", accent: "#7d5a1a", glow: "#6b1428" },
+  "gym-nutrition": { from: "#f9ebe8", to: "#fffaf7", accent: "#8f651c", glow: "#a52541" },
 };
 
 /**
@@ -44,12 +45,13 @@ export default function PlaceholderArt({ category, label, seed = 0, className = 
           <stop offset="1" stopColor={p.to} />
         </linearGradient>
         <radialGradient id={`${id}-glow`} cx={`${glowX}%`} cy={`${glowY}%`} r="55%">
-          <stop offset="0" stopColor={p.glow} stopOpacity="0.55" />
+          <stop offset="0" stopColor={p.glow} stopOpacity="0.22" />
           <stop offset="1" stopColor={p.glow} stopOpacity="0" />
         </radialGradient>
         <linearGradient id={`${id}-gold`} x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stopColor="#f4c05f" />
-          <stop offset="1" stopColor="#a86e2e" />
+          <stop offset="0" stopColor="#b98a2f" />
+          <stop offset="0.55" stopColor="#8f651c" />
+          <stop offset="1" stopColor="#6b1428" />
         </linearGradient>
       </defs>
 
@@ -58,22 +60,22 @@ export default function PlaceholderArt({ category, label, seed = 0, className = 
 
       {/* Category pattern */}
       {category === "stationery" && (
-        <g stroke={p.accent} strokeOpacity="0.14" strokeWidth="1">
+        <g stroke={p.accent} strokeOpacity="0.28" strokeWidth="1">
           {Array.from({ length: 16 }, (_, i) => (
             <line key={i} x1="0" x2="400" y1={40 + i * 30} y2={40 + i * 30} />
           ))}
-          <line x1="64" x2="64" y1="0" y2="500" stroke="#c43a58" strokeOpacity="0.45" strokeWidth="1.5" />
+          <line x1="64" x2="64" y1="0" y2="500" stroke="#c43a58" strokeOpacity="0.55" strokeWidth="1.5" />
         </g>
       )}
       {category === "phone-accessories" && (
-        <g fill="none" stroke={p.accent} strokeOpacity="0.12" strokeWidth="1">
+        <g fill="none" stroke={p.accent} strokeOpacity="0.22" strokeWidth="1">
           {Array.from({ length: 7 }, (_, i) => (
             <circle key={i} cx={300 - variant * 80} cy={120 + variant * 60} r={40 + i * 48} />
           ))}
         </g>
       )}
       {category === "gym-nutrition" && (
-        <g stroke={p.accent} strokeOpacity="0.12" strokeWidth="1">
+        <g stroke={p.accent} strokeOpacity="0.2" strokeWidth="1">
           {Array.from({ length: 22 }, (_, i) => (
             <line key={i} x1={-200 + i * 40} y1="500" x2={100 + i * 40} y2="0" />
           ))}
@@ -88,7 +90,7 @@ export default function PlaceholderArt({ category, label, seed = 0, className = 
         strokeWidth="3"
         strokeLinecap="round"
         strokeLinejoin="round"
-        opacity="0.85"
+        opacity="0.9"
       >
         {category === "stationery" && (
           <>
@@ -119,17 +121,17 @@ export default function PlaceholderArt({ category, label, seed = 0, className = 
       </g>
 
       {/* Gold hairline corner accents */}
-      <g stroke={p.accent} strokeOpacity="0.5" strokeWidth="1">
+      <g stroke={p.accent} strokeOpacity="0.6" strokeWidth="1">
         <path d="M22 60 V22 H60" fill="none" />
         <path d="M378 440 V478 H340" fill="none" />
       </g>
 
       {label && (
         <g fontFamily="ui-sans-serif, system-ui, sans-serif">
-          <text x="22" y="468" fill={p.accent} fillOpacity="0.9" fontSize="15" fontWeight="600">
+          <text x="22" y="468" fill="#6b1428" fontSize="15" fontWeight="600">
             {label.length > 30 ? `${label.slice(0, 28)}…` : label}
           </text>
-          <text x="22" y="486" fill={p.accent} fillOpacity="0.45" fontSize="9" letterSpacing="2.5" fontWeight="700">
+          <text x="22" y="486" fill="#8f651c" fillOpacity="0.8" fontSize="9" letterSpacing="2.5" fontWeight="700">
             IMAGE PLACEHOLDER
           </text>
         </g>

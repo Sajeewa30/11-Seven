@@ -38,7 +38,7 @@ export default function Header() {
     <>
       <header
         className={`fixed inset-x-0 top-0 z-50 border-b transition-all duration-500 ${
-          solid ? "border-gold-500/15 bg-coal/85 backdrop-blur-xl" : "border-transparent bg-transparent"
+          solid ? "border-gold-600/25 bg-page/85 backdrop-blur-xl" : "border-transparent bg-transparent"
         }`}
       >
         <div className="container-x flex h-20 items-center justify-between gap-6">
@@ -53,7 +53,7 @@ export default function Header() {
                   href={item.href}
                   aria-current={active ? "page" : undefined}
                   className={`link-draw text-[0.78rem] font-semibold uppercase tracking-[0.18em] transition-colors ${
-                    active ? "text-gold-300" : "text-cream-muted hover:text-cream"
+                    active ? "text-maroon-700" : "text-ink-muted hover:text-ink"
                   }`}
                 >
                   {item.label}
@@ -65,7 +65,7 @@ export default function Header() {
           <div className="flex items-center gap-3">
             <a
               href={`tel:${site.phone.tel}`}
-              className="hidden items-center gap-2 text-sm font-medium text-cream-muted transition-colors hover:text-gold-300 lg:inline-flex"
+              className="hidden items-center gap-2 text-sm font-medium text-ink-muted transition-colors hover:text-maroon-700 lg:inline-flex"
             >
               <PhoneCall size={17} />
               {site.phone.display}
@@ -74,7 +74,7 @@ export default function Header() {
             <Link
               href="/shop"
               title="Online ordering coming soon"
-              className="relative inline-flex h-11 w-11 items-center justify-center rounded-full border border-gold-500/25 text-cream-muted transition-colors hover:border-gold-500/60 hover:text-gold-300"
+              className="relative inline-flex h-11 w-11 items-center justify-center rounded-full border border-gold-600/40 text-ink-muted transition-colors hover:border-maroon-700 hover:text-maroon-700"
             >
               <Bag size={19} />
               <span className="absolute -right-1 -top-1 grid h-5 min-w-5 place-items-center rounded-full bg-maroon-600 px-1 text-[0.65rem] font-bold text-cream">
@@ -88,7 +88,7 @@ export default function Header() {
               onClick={() => setOpenOn(open ? null : pathname)}
               aria-expanded={open}
               aria-controls="mobile-menu"
-              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-gold-500/25 text-cream transition-colors hover:border-gold-500/60 md:hidden"
+              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-gold-600/40 text-ink transition-colors hover:border-maroon-700 md:hidden"
             >
               {open ? <Close /> : <Menu />}
               <span className="sr-only">{open ? "Close menu" : "Open menu"}</span>

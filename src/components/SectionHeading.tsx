@@ -27,17 +27,17 @@ export default function SectionHeading({
       <div className="max-w-2xl">
         {eyebrow && (
           <p className={`eyebrow flex items-center gap-3 ${centered ? "justify-center" : ""}`}>
-            {!centered && <span className="h-px w-8 bg-gold-500/70" />}
+            {!centered && <span className="h-px w-8 bg-gold-600/70" />}
             {eyebrow}
           </p>
         )}
-        <h2 className="mt-4 font-display text-4xl leading-[1.02] text-cream sm:text-5xl lg:text-[3.5rem]">{title}</h2>
-        {description && <p className="mt-5 text-base leading-relaxed text-cream-muted sm:text-lg">{description}</p>}
+        <h2 className="mt-4 font-display text-4xl leading-[1.02] text-ink sm:text-5xl lg:text-[3.5rem]">{title}</h2>
+        {description && <p className="mt-5 text-base leading-relaxed text-ink-muted sm:text-lg">{description}</p>}
       </div>
       {action && (
         <Link
           href={action.href}
-          className="group inline-flex shrink-0 items-center gap-2 text-sm font-semibold uppercase tracking-[0.18em] text-gold-400 transition-colors hover:text-gold-200"
+          className="group inline-flex shrink-0 items-center gap-2 text-sm font-semibold uppercase tracking-[0.18em] text-maroon-700 transition-colors hover:text-maroon-500"
         >
           {action.label}
           <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />

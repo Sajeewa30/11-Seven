@@ -1,14 +1,22 @@
 import Link from "next/link";
 import type { ComponentPropsWithoutRef, ReactNode } from "react";
 
-type Variant = "gold" | "outline" | "ghost" | "maroon";
+/**
+ * primary      — maroon fill, cream text (default; use on light surfaces)
+ * gold         — gold fill, ink text (use on dark maroon panels)
+ * outline      — maroon hairline (light surfaces)
+ * outlineLight — cream hairline (dark panels)
+ * ghost        — text only
+ */
+type Variant = "primary" | "gold" | "outline" | "outlineLight" | "ghost";
 type Size = "sm" | "md" | "lg";
 
 const variants: Record<Variant, string> = {
-  gold: "btn-shine bg-gold-500 text-ink hover:bg-gold-400 hover:shadow-gold",
-  maroon: "btn-shine bg-maroon-700 text-cream hover:bg-maroon-600 border border-maroon-500/40",
-  outline: "border border-gold-500/55 text-gold-300 hover:border-gold-400 hover:bg-gold-500/10",
-  ghost: "text-cream-muted hover:text-cream",
+  primary: "btn-shine bg-maroon-700 text-cream hover:bg-maroon-600 hover:shadow-lift",
+  gold: "btn-shine bg-gold-500 text-ink hover:bg-gold-400 hover:shadow-lift",
+  outline: "border border-maroon-700/50 text-maroon-700 hover:border-maroon-700 hover:bg-maroon-700/10",
+  outlineLight: "border border-cream/50 text-cream hover:border-cream hover:bg-cream/10",
+  ghost: "text-ink-muted hover:text-ink",
 };
 
 const sizes: Record<Size, string> = {
@@ -33,7 +41,7 @@ type NativeButtonProps = CommonProps & { href?: undefined } & Omit<ComponentProp
 export type ButtonProps = LinkButtonProps | NativeButtonProps;
 
 export default function Button(props: ButtonProps) {
-  const { variant = "gold", size = "md", className = "", children } = props;
+  const { variant = "primary", size = "md", className = "", children } = props;
   const cls = `${baseClass} ${variants[variant]} ${sizes[size]} ${className}`;
 
   if (props.href !== undefined) {

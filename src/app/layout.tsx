@@ -32,14 +32,14 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0f0a0c",
-  colorScheme: "dark",
+  themeColor: "#fbf7f2",
+  colorScheme: "light",
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className={`${italiana.variable} ${manrope.variable} ${poppins.variable} h-full`}>
-      <body className="flex min-h-full flex-col bg-coal font-body text-cream">
+      <body className="flex min-h-full flex-col bg-page font-body text-ink">
         <div className="grain" aria-hidden />
         <GoldFrame />
         <Header />
