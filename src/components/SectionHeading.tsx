@@ -31,7 +31,7 @@ export default function SectionHeading({
             {eyebrow}
           </p>
         )}
-        <h2 className="mt-4 font-display text-4xl leading-[1.02] text-ink sm:text-5xl lg:text-[3.5rem]">{title}</h2>
+        <h2 className="mt-4 font-display text-4xl font-medium leading-[1.08] text-ink sm:text-5xl">{title}</h2>
         {description && <p className="mt-5 text-base leading-relaxed text-ink-muted sm:text-lg">{description}</p>}
       </div>
       {action && (

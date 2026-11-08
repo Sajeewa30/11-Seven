@@ -1,124 +1,80 @@
+import Link from "next/link";
 import Button from "./Button";
-import PlaceholderArt from "./PlaceholderArt";
-import { ArrowRight } from "./Icons";
-import { site } from "@/data/site";
-import type { CategorySlug } from "@/data/products";
-
-interface Tile {
-  category: CategorySlug;
-  label: string;
-  sub: string;
-  cls: string;
-}
-
-const tiles: Tile[] = [
-  {
-    category: "stationery",
-    label: "Stationery",
-    sub: "Books · Pens · Art supplies",
-    cls: "left-0 top-0 w-[58%] -rotate-4 [animation-delay:0s]",
-  },
-  {
-    category: "phone-accessories",
-    label: "Phone accessories",
-    sub: "Chargers · Cases · Audio",
-    cls: "right-0 top-[12%] z-10 w-[46%] rotate-3 [animation-delay:-2.6s]",
-  },
-  {
-    category: "gym-nutrition",
-    label: "Gym & nutrition",
-    sub: "Whey · Creatine · Pre-workout",
-    cls: "bottom-0 left-[26%] z-20 w-[44%] -rotate-1 [animation-delay:-5.2s]",
-  },
-];
-
-function TileCard({ tile, index, className = "" }: { tile: Tile; index: number; className?: string }) {
-  return (
-    <div className={`surface relative aspect-[4/5] overflow-hidden rounded-tile ${className}`}>
-      <PlaceholderArt category={tile.category} seed={index} />
-      <div className="absolute inset-x-0 bottom-0 bg-linear-to-t from-paper via-paper/70 to-transparent p-4 pt-10">
-        <p className="text-[0.6rem] font-bold uppercase tracking-[0.22em] text-maroon-700">{tile.label}</p>
-        <p className="mt-1 hidden text-xs text-ink-muted sm:block">{tile.sub}</p>
-      </div>
-    </div>
-  );
-}
+import InstalmentBar from "./InstalmentBar";
+import DepartmentIcon from "./DepartmentIcon";
+import { ArrowRight, WhatsApp } from "./Icons";
+import { departments, schoolSeason, site } from "@/data/site";
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden pb-20 pt-32 lg:pb-28 lg:pt-44">
-      {/* Atmosphere */}
-      <div className="pointer-events-none absolute -left-40 top-24 h-[720px] w-[720px] rounded-full bg-maroon-500/10 blur-[150px]" />
-      <div className="pointer-events-none absolute right-[-10%] top-[-10%] h-[420px] w-[420px] rounded-full bg-gold-400/20 blur-[120px]" />
-      <div className="dot-grid pointer-events-none absolute inset-0 [mask-image:radial-gradient(ellipse_at_center,black_20%,transparent_70%)]" />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -right-6 top-14 select-none font-brand text-[34vw] font-extrabold leading-none text-transparent [-webkit-text-stroke:1px_rgba(107,20,40,0.08)] lg:-right-10 lg:top-0 lg:text-[26vw]"
-      >
-        11
-      </div>
+    <section className="relative overflow-hidden pb-16 pt-32 lg:pb-24 lg:pt-40">
+      <div className="dot-grid pointer-events-none absolute inset-0 [mask-image:radial-gradient(ellipse_at_top_left,black_10%,transparent_65%)]" />
 
-      <div className="container-x relative grid items-center gap-16 lg:grid-cols-12 lg:gap-8">
+      <div className="container-x relative grid items-center gap-12 lg:grid-cols-12 lg:gap-10">
         <div className="lg:col-span-7">
-          <p className="eyebrow flex animate-rise items-center gap-3">
-            <span className="relative inline-flex h-2 w-2">
-              <span className="animate-pulse-dot absolute inset-0 rounded-full bg-maroon-600" />
-              <span className="relative h-2 w-2 rounded-full bg-maroon-600" />
-            </span>
-            Now open · Kandy Road, {site.address.city}
-          </p>
+          <p className="eyebrow animate-rise">Now open · {site.address.line1}, {site.address.city}</p>
 
-          <h1 className="mt-7 animate-rise font-display text-[3.4rem] leading-[0.94] text-ink [animation-delay:120ms] sm:text-7xl lg:text-[6.2rem]">
-            <span className="block">For the desk,</span>
-            <span className="block">the pocket</span>
-            <span className="block">
-              &amp; the <span className="text-gold-sheen">gym.</span>
-            </span>
+          <h1 className="mt-6 animate-rise font-display text-[2.75rem] font-medium leading-[1.05] text-ink [animation-delay:80ms] sm:text-6xl lg:text-[4.25rem]">
+            Everything for school, your phone &amp; the gym.
           </h1>
 
-          <p className="mt-8 max-w-xl animate-rise text-lg leading-relaxed text-ink-muted [animation-delay:240ms]">
-            11-seven brings stationery, genuine phone accessories and trusted gym supplements under one roof in
-            Wattegama — with school-season book ordering and KOKO pay-later on the way.
+          <p className="mt-6 max-w-xl animate-rise text-lg leading-relaxed text-ink-muted [animation-delay:160ms]">
+            11-seven is your local shop in {site.address.city} for stationery, mobile phone accessories and gym
+            supplements — genuine products, fair prices and friendly service, all under one roof.
           </p>
 
-          <div className="mt-10 flex animate-rise flex-wrap items-center gap-4 [animation-delay:360ms]">
-            <Button href="/shop" size="lg">
-              Explore the shop
+          <div className="mt-9 flex animate-rise flex-wrap items-center gap-3 [animation-delay:240ms]">
+            <Button href="/contact" size="lg">
+              Visit the shop
               <ArrowRight size={18} />
             </Button>
-            <Button href="/contact" variant="outline" size="lg">
-              Visit us
+            <Button href={site.phone.whatsapp} variant="outline" size="lg" target="_blank" rel="noreferrer">
+              <WhatsApp size={18} />
+              WhatsApp us
             </Button>
           </div>
 
-          <dl className="mt-14 flex animate-rise flex-wrap gap-x-10 gap-y-4 border-t border-gold-600/30 pt-7 text-sm text-ink-muted [animation-delay:480ms]">
-            {[
-              ["3", "departments"],
-              ["100+", "products in store"],
-              ["7", "days a week"],
-            ].map(([num, label]) => (
-              <div key={label} className="flex items-baseline gap-2">
-                <dt className="font-display text-3xl text-maroon-700">{num}</dt>
-                <dd>{label}</dd>
-              </div>
+          <ul className="mt-10 flex animate-rise flex-wrap gap-2.5 [animation-delay:320ms]">
+            {departments.map((d) => (
+              <li key={d.slug}>
+                <Link
+                  href={`#${d.slug}`}
+                  className="inline-flex items-center gap-2 rounded-full border border-gold-600/40 bg-paper px-4 py-2 text-sm font-semibold text-ink transition-colors hover:border-maroon-700 hover:text-maroon-700"
+                >
+                  <DepartmentIcon icon={d.icon} size={16} className="text-maroon-700" />
+                  {d.name}
+                </Link>
+              </li>
             ))}
-          </dl>
+          </ul>
         </div>
 
-        {/* Desktop: floating composition */}
-        <div className="relative hidden h-[600px] animate-fade [animation-delay:300ms] lg:col-span-5 lg:block">
-          {tiles.map((tile, i) => (
-            <div key={tile.category} className={`absolute animate-float ${tile.cls}`}>
-              <TileCard tile={tile} index={i} className="shadow-card" />
-            </div>
-          ))}
-        </div>
+        {/* Current offer */}
+        <div className="animate-rise [animation-delay:200ms] lg:col-span-5">
+          <Link
+            href="/school-season"
+            className="group relative block overflow-hidden rounded-card bg-maroon-900 p-8 text-cream shadow-lift sm:p-10"
+          >
+            <div className="pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full bg-gold-500/15 blur-3xl" />
+            <div className="pointer-events-none absolute inset-3 rounded-[0.9rem] border border-gold-500/30" />
 
-        {/* Mobile / tablet: simple strip */}
-        <div className="grid animate-rise grid-cols-3 gap-3 [animation-delay:400ms] lg:hidden">
-          {tiles.map((tile, i) => (
-            <TileCard key={tile.category} tile={tile} index={i} />
-          ))}
+            <p className="relative inline-flex items-center gap-2 rounded-full bg-gold-400 px-3 py-1 text-xs font-bold uppercase tracking-[0.14em] text-ink">
+              {schoolSeason.short} · {schoolSeason.label}
+            </p>
+            <h2 className="relative mt-6 font-display text-3xl font-medium leading-tight sm:text-[2.4rem]">
+              School books now, pay in 3 with KOKO.
+            </h2>
+            <p className="relative mt-4 leading-relaxed text-cream-muted">
+              Bring your book list — we’ll pack everything for the new term, at special school-season prices.
+            </p>
+
+            <InstalmentBar className="relative mt-8" />
+
+            <span className="relative mt-8 inline-flex items-center gap-2 font-semibold text-gold-300">
+              See the school-season offer
+              <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
+            </span>
+          </Link>
         </div>
       </div>
     </section>

@@ -33,7 +33,7 @@ export default function Logo({ size = "md", withTagline = false, linked = true, 
       <Wordmark className={sizes[size]} />
       {withTagline && (
         <>
-          <span className="text-[0.6rem] font-semibold uppercase tracking-[0.22em] text-gold-700 sm:text-[0.66rem]">
+          <span className="text-[0.68rem] font-bold uppercase tracking-[0.16em] text-gold-700">
             Stationery · Phone Accessories · Gym Supplements
           </span>
           <span className="gold-hairline w-full" />

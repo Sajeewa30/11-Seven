@@ -1,105 +1,97 @@
 import Button from "./Button";
-import { ArrowUpRight, Clock, MapPin, PhoneCall, WhatsApp } from "./Icons";
+import { ArrowUpRight, Clock, Mail, MapPin, PhoneCall, WhatsApp } from "./Icons";
 import Reveal from "./Reveal";
 import { site } from "@/data/site";
 
-interface VisitStripProps {
-  /** Tighter vertical padding when the parent page already has a heading. */
-  compact?: boolean;
-}
-
-export default function VisitStrip({ compact = false }: VisitStripProps) {
+/** Address, hours and contact buttons — used at the foot of most pages. */
+export default function VisitStrip() {
   return (
-    <section className={`container-x ${compact ? "py-4" : "py-20 lg:py-28"}`}>
-      <div className="grid gap-6 lg:grid-cols-12">
-        {/* Map placeholder — replace with a Google Maps embed */}
-        <Reveal className="lg:col-span-7">
-          <a
-            href={site.address.mapsUrl}
-            target="_blank"
-            rel="noreferrer"
-            className="surface group relative block min-h-[360px] overflow-hidden rounded-card lg:min-h-[460px]"
-          >
-            <div className="dot-grid absolute inset-0 opacity-90" />
-            <div className="absolute inset-0 bg-linear-to-br from-linen via-transparent to-sand/80" />
-            <div className="absolute inset-0" aria-hidden>
-              <div className="absolute left-[-10%] top-[55%] h-px w-[120%] -rotate-12 bg-gold-600/40" />
-              <div className="absolute left-[-10%] top-[60%] h-px w-[120%] -rotate-12 bg-gold-600/25" />
-              <div className="absolute left-[38%] top-[-10%] h-[120%] w-px rotate-[20deg] bg-gold-600/30" />
-            </div>
-            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center">
-              <span className="relative mx-auto grid h-16 w-16 place-items-center rounded-full bg-maroon-700 text-cream shadow-lift transition-transform duration-500 group-hover:-translate-y-1">
-                <span className="animate-pulse-dot absolute inset-0 rounded-full" />
-                <MapPin size={28} />
-              </span>
-              <p className="mt-5 font-display text-3xl text-ink">{site.address.line1}</p>
-              <p className="mt-1 text-sm text-ink-muted">
-                {site.address.city}, {site.address.country}
-              </p>
-            </div>
-            <span className="absolute bottom-5 right-5 inline-flex items-center gap-2 rounded-full border border-maroon-700/40 bg-paper px-4 py-2 text-[0.7rem] font-bold uppercase tracking-[0.2em] text-maroon-700 backdrop-blur transition-colors group-hover:bg-maroon-700 group-hover:text-cream">
-              Open in Google Maps
-              <ArrowUpRight size={14} />
-            </span>
-            <span className="absolute left-5 top-5 text-[0.6rem] font-bold uppercase tracking-[0.22em] text-gold-700/70">
-              Map placeholder
-            </span>
-          </a>
-        </Reveal>
+    <section className="container-x pt-20 lg:pt-28">
+      <Reveal>
+        <div className="grid overflow-hidden rounded-card border border-gold-600/30 bg-paper shadow-card lg:grid-cols-12">
+          <div className="p-8 sm:p-10 lg:col-span-7 lg:p-12">
+            <p className="eyebrow">Visit the shop</p>
+            <h2 className="mt-4 font-display text-4xl font-medium leading-tight text-ink sm:text-5xl">Come say hello.</h2>
 
-        <Reveal delay={120} className="lg:col-span-5">
-          <div className="surface flex h-full flex-col justify-between rounded-card p-8 lg:p-10">
-            <div>
-              <p className="eyebrow flex items-center gap-3">
-                <span className="h-px w-8 bg-gold-600/70" />
-                Visit the shop
-              </p>
-              <h2 className="mt-5 font-display text-4xl leading-none text-ink sm:text-5xl">Come say hello.</h2>
-
-              <ul className="mt-8 space-y-6 text-sm text-ink-muted">
-                <li className="flex gap-4">
-                  <MapPin size={20} className="mt-0.5 shrink-0 text-gold-700" />
+            <div className="mt-8 grid gap-6 sm:grid-cols-2">
+              <div className="flex gap-4">
+                <MapPin size={22} className="mt-0.5 shrink-0 text-maroon-700" />
+                <div>
+                  <p className="font-bold text-ink">Address</p>
+                  <p className="mt-1 text-ink-muted">
+                    {site.address.line1}
+                    <br />
+                    {site.address.city}, {site.address.country}
+                  </p>
+                </div>
+              </div>
+              <div className="flex gap-4">
+                <Clock size={22} className="mt-0.5 shrink-0 text-maroon-700" />
+                <div>
+                  <p className="font-bold text-ink">Opening hours</p>
+                  {site.hours.map((h) => (
+                    <p key={h.days} className="mt-1 text-ink-muted">
+                      {h.days}
+                      <br />
+                      <span className="font-semibold text-ink">{h.time}</span>
+                    </p>
+                  ))}
+                </div>
+              </div>
+              <div className="flex gap-4">
+                <PhoneCall size={22} className="mt-0.5 shrink-0 text-maroon-700" />
+                <div>
+                  <p className="font-bold text-ink">Phone &amp; WhatsApp</p>
+                  <p className="mt-1">
+                    <a href={`tel:${site.phone.tel}`} className="text-ink-muted underline-offset-4 hover:text-maroon-700 hover:underline">
+                      {site.phone.display}
+                    </a>
+                  </p>
+                </div>
+              </div>
+              {site.email && (
+                <div className="flex gap-4">
+                  <Mail size={22} className="mt-0.5 shrink-0 text-maroon-700" />
                   <div>
-                    <p className="font-semibold text-ink">{site.address.line1}</p>
-                    <p>
-                      {site.address.city}, {site.address.region}
+                    <p className="font-bold text-ink">Email</p>
+                    <p className="mt-1">
+                      <a href={`mailto:${site.email}`} className="break-all text-ink-muted underline-offset-4 hover:text-maroon-700 hover:underline">
+                        {site.email}
+                      </a>
                     </p>
                   </div>
-                </li>
-                <li className="flex gap-4">
-                  <Clock size={20} className="mt-0.5 shrink-0 text-gold-700" />
-                  <div className="space-y-1.5">
-                    {site.hours.map((h) => (
-                      <p key={h.days}>
-                        <span className="font-semibold text-ink">{h.days}</span>
-                        <span className="mx-2 text-gold-700">·</span>
-                        {h.time}
-                      </p>
-                    ))}
-                  </div>
-                </li>
-                <li className="flex gap-4">
-                  <PhoneCall size={20} className="mt-0.5 shrink-0 text-gold-700" />
-                  <a href={`tel:${site.phone.tel}`} className="font-semibold text-ink hover:text-maroon-500">
-                    {site.phone.display}
-                  </a>
-                </li>
-              </ul>
+                </div>
+              )}
             </div>
+          </div>
 
-            <div className="mt-10 flex flex-wrap gap-3">
-              <Button href={`tel:${site.phone.tel}`} size="md">
+          <div className="relative flex flex-col justify-center gap-4 bg-maroon-900 p-8 sm:p-10 lg:col-span-5 lg:p-12">
+            <div className="pointer-events-none absolute inset-3 rounded-[0.9rem] border border-gold-500/25" />
+            <p className="relative font-display text-3xl leading-tight text-cream">
+              Call ahead to check stock, or just drop in.
+            </p>
+            <div className="relative mt-2 flex flex-col gap-3 sm:flex-row lg:flex-col xl:flex-row">
+              <Button href={`tel:${site.phone.tel}`} variant="gold" size="md">
                 <PhoneCall size={17} />
                 Call the shop
               </Button>
-              <Button href={site.phone.whatsapp} variant="outline" size="md" target="_blank" rel="noreferrer">
+              <Button href={site.phone.whatsapp} variant="outlineLight" size="md" target="_blank" rel="noreferrer">
                 <WhatsApp size={17} />
                 WhatsApp
               </Button>
             </div>
+            <a
+              href={site.address.mapsUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="relative mt-2 inline-flex items-center gap-2 font-semibold text-gold-300 underline-offset-4 hover:underline"
+            >
+              Get directions on Google Maps
+              <ArrowUpRight size={16} />
+            </a>
           </div>
-        </Reveal>
-      </div>
+        </div>
+      </Reveal>
     </section>
   );
 }

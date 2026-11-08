@@ -1,10 +1,14 @@
 @import "tailwindcss";
 
 /* ─────────────────────────────────────────────────────────────
-   11-seven design tokens — cream paper, deep maroon, brushed gold
-   Contrast (WCAG AA) against --color-page #fbf7f2:
-     ink 17:1 · ink-muted 7.9:1 · ink-dim 5.1:1 · gold-700 4.9:1
-     maroon-700 11:1 · maroon-600 8.8:1 · maroon-500 6.7:1
+   11-seven design tokens — cream paper, deep maroon, brushed gold.
+   Every text colour below meets WCAG AA (4.5:1) on the surface it is used on:
+     on page #fbf7f2  · ink 17.4 · ink-muted 7.8 · ink-dim 5.2 · maroon-700 11.2 · gold-700 6.3
+     on linen #f3ece3 · ink-muted 7.1 · maroon-700 10.2 · gold-700 5.8
+     on maroon-900    · cream 15.1 · cream-muted 9.6 · gold-300 12.0
+     buttons          · cream on maroon-700 10.4 · ink on gold-400 10.5
+   Gold is used as text only in its darkest shade (gold-700) on light surfaces,
+   or in its lightest shades (gold-200/300) on maroon. Mid golds are for lines only.
    ───────────────────────────────────────────────────────────── */
 @theme {
   /* Light surfaces */
@@ -18,10 +22,7 @@
   --color-ink-muted: #5a4a4f;
   --color-ink-dim: #74646a;
 
-  /* Dark accent panels and the text that sits on them */
-  --color-coal: #0f0a0c;
-  --color-charcoal: #181114;
-  --color-smoke: #241a1e;
+  /* Text on dark (maroon) surfaces */
   --color-cream: #f6eee2;
   --color-cream-muted: #cdbfaf;
 
@@ -32,7 +33,6 @@
   --color-maroon-700: #6b1428;
   --color-maroon-600: #881b34;
   --color-maroon-500: #a52541;
-  --color-maroon-400: #c43a58;
 
   /* Gold scale (sampled from the grand-opening wordmark) */
   --color-gold-200: #f7e6b4;
@@ -40,8 +40,7 @@
   --color-gold-400: #e5be5e;
   --color-gold-500: #d6a648;
   --color-gold-600: #b98a2f;
-  --color-gold-700: #8f651c;
-  --color-gold-800: #5f3f0d;
+  --color-gold-700: #7a5414;
 
   --radius-card: 1.25rem;
   --radius-tile: 0.9rem;
@@ -49,36 +48,16 @@
   --shadow-card: 0 24px 50px -30px rgb(59 12 21 / 0.28);
   --shadow-lift: 0 18px 40px -18px rgb(107 20 40 / 0.35);
 
-  --animate-marquee: marquee 38s linear infinite;
-  --animate-rise: rise 1s cubic-bezier(0.22, 1, 0.36, 1) both;
-  --animate-fade: fade 1.4s ease-out both;
-  --animate-float: float 8s ease-in-out infinite;
-  --animate-pulse-dot: pulse-dot 2.4s ease-in-out infinite;
+  --animate-rise: rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
 
-  @keyframes marquee {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
-  }
   @keyframes rise {
-    from { opacity: 0; transform: translateY(32px); }
+    from { opacity: 0; transform: translateY(24px); }
     to { opacity: 1; transform: translateY(0); }
-  }
-  @keyframes fade {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-  @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-12px); }
-  }
-  @keyframes pulse-dot {
-    0%, 100% { box-shadow: 0 0 0 0 rgb(165 37 65 / 0.45); }
-    60% { box-shadow: 0 0 0 10px rgb(165 37 65 / 0); }
   }
 }
 
 @theme inline {
-  --font-display: var(--font-italiana), "Didot", "Bodoni MT", "Times New Roman", serif;
+  --font-display: var(--font-bodoni), "Didot", "Bodoni MT", "Times New Roman", serif;
   --font-body: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
   --font-brand: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
 }
@@ -103,7 +82,7 @@
   :focus-visible {
     outline: 2px solid var(--color-maroon-600);
     outline-offset: 3px;
-    border-radius: 2px;
+    border-radius: 4px;
   }
   @media (prefers-reduced-motion: reduce) {
     *, ::before, ::after {
@@ -135,44 +114,24 @@
   color: transparent;
 }
 
-/* Bronze sheen for highlighted words in large headings (≥ 3.8:1 on cream) */
-@utility text-gold-sheen {
-  background-image: linear-gradient(95deg, #b07022 0%, #8d5527 50%, #6a3f10 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-/* Thin gold hairline with a soft fade at both ends */
+/* Thin gold hairline with a soft fade at both ends (decorative) */
 @utility gold-hairline {
   height: 1px;
   background-image: linear-gradient(90deg, transparent, rgb(185 138 47 / 0.7) 20%, rgb(185 138 47 / 0.7) 80%, transparent);
 }
 
-/* Eyebrow label: small caps, tracked, bronze-gold */
+/* Eyebrow label: small caps, tracked, dark gold (6.3:1 on page) */
 @utility eyebrow {
-  font-size: 0.72rem;
-  letter-spacing: 0.28em;
+  font-size: 0.75rem;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--color-gold-700);
-  font-weight: 600;
+  font-weight: 700;
 }
 
-/* Paper grain overlay — sits on top of everything, never blocks clicks */
-@utility grain {
-  pointer-events: none;
-  position: fixed;
-  inset: 0;
-  z-index: 80;
-  opacity: 0.05;
-  mix-blend-mode: multiply;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
-  background-size: 180px 180px;
-}
-
-/* Subtle dotted grid used behind hero / section backgrounds */
+/* Subtle dotted grid used behind hero backgrounds (decorative) */
 @utility dot-grid {
-  background-image: radial-gradient(rgb(143 101 28 / 0.22) 1px, transparent 1px);
+  background-image: radial-gradient(rgb(143 101 28 / 0.18) 1px, transparent 1px);
   background-size: 28px 28px;
 }
 
@@ -187,7 +146,7 @@
 @layer components {
   .container-x {
     width: 100%;
-    max-width: 82rem;
+    max-width: 76rem;
     margin-inline: auto;
     padding-inline: 1.25rem;
   }
@@ -198,51 +157,31 @@
     .container-x { padding-inline: 3rem; }
   }
 
-  /* Scroll-reveal (driven by <Reveal />) */
-  .reveal {
+  /* Scroll-reveal (driven by <Reveal />). Content stays visible if JavaScript is off. */
+  .js .reveal {
     opacity: 0;
-    transform: translateY(26px);
-    transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
-    will-change: opacity, transform;
+    transform: translateY(20px);
+    transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
   }
-  .reveal.is-visible {
+  .js .reveal.is-visible {
     opacity: 1;
     transform: none;
   }
   @media (prefers-reduced-motion: reduce) {
-    .reveal { opacity: 1; transform: none; }
-  }
-
-  /* Light sheen sweep on filled buttons */
-  .btn-shine {
-    position: relative;
-    overflow: hidden;
-    isolation: isolate;
-  }
-  .btn-shine::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-    background: linear-gradient(110deg, transparent 30%, rgb(255 255 255 / 0.28) 50%, transparent 70%);
-    transform: translateX(-120%);
-    transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
-  }
-  .btn-shine:hover::after {
-    transform: translateX(120%);
+    .js .reveal { opacity: 1; transform: none; }
   }
 
   /* Underline-draw link */
   .link-draw {
     background-image: linear-gradient(currentColor, currentColor);
-    background-size: 0% 1px;
+    background-size: 0% 2px;
     background-repeat: no-repeat;
     background-position: left bottom;
-    transition: background-size 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-    padding-bottom: 2px;
+    transition: background-size 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+    padding-bottom: 3px;
   }
   .link-draw:hover,
   .link-draw[aria-current="page"] {
-    background-size: 100% 1px;
+    background-size: 100% 2px;
   }
 }

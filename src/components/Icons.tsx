@@ -165,3 +165,39 @@ export const TikTok = (p: IconProps) => (
     <path d="M14 4c.5 2.5 2 4 4.5 4.5" />
   </svg>
 );
+
+export const CreditCard = (p: IconProps) => (
+  <svg {...base(p)}>
+    <rect x="2.5" y="5" width="19" height="14" rx="2" />
+    <path d="M2.5 9.5h19" />
+    <path d="M6 15h4" />
+  </svg>
+);
+
+export const Store = (p: IconProps) => (
+  <svg {...base(p)}>
+    <path d="M4 10v10h16V10" />
+    <path d="M3 10 5 4h14l2 6a2.5 2.5 0 0 1-4.5 1.5A2.5 2.5 0 0 1 12 12a2.5 2.5 0 0 1-4.5-.5A2.5 2.5 0 0 1 3 10Z" />
+    <path d="M10 20v-5h4v5" />
+  </svg>
+);
+
+export const Heart = (p: IconProps) => (
+  <svg {...base(p)}>
+    <path d="M12 20s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7.3a4.3 4.3 0 0 1 7.5 2.5C19.5 15.4 12 20 12 20Z" />
+  </svg>
+);
+
+export const ListCheck = (p: IconProps) => (
+  <svg {...base(p)}>
+    <path d="M11 6h9M11 12h9M11 18h9" />
+    <path d="m3.5 6 1.5 1.5L7.5 5M3.5 12l1.5 1.5 2.5-2.5M3.5 18l1.5 1.5 2.5-2.5" />
+  </svg>
+);
+
+export const Calendar = (p: IconProps) => (
+  <svg {...base(p)}>
+    <rect x="3.5" y="5" width="17" height="15.5" rx="2" />
+    <path d="M3.5 10h17M8 3v4M16 3v4" />
+  </svg>
+);

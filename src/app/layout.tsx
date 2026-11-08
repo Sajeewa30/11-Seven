@@ -1,18 +1,17 @@
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
-import { Italiana, Manrope, Poppins } from "next/font/google";
+import { Bodoni_Moda, Manrope, Poppins } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import GoldFrame from "@/components/GoldFrame";
 import { site } from "@/data/site";
 
-/* Display serif — echoes the thin Didone lettering on the grand-opening invitation. */
-const italiana = Italiana({ weight: "400", subsets: ["latin"], variable: "--font-italiana", display: "swap" });
+/* Display serif — a sturdier Didone that echoes the lettering on the grand-opening invitation. */
+const bodoni = Bodoni_Moda({ weight: ["500", "600"], subsets: ["latin"], variable: "--font-bodoni", display: "swap" });
 /* Body / UI. */
 const manrope = Manrope({ subsets: ["latin"], variable: "--font-manrope", display: "swap" });
 /* Brand wordmark — the "11-seven" lettering is set in Poppins Extra Bold. */
-const poppins = Poppins({ weight: ["600", "700", "800"], subsets: ["latin"], variable: "--font-poppins", display: "swap" });
+const poppins = Poppins({ weight: ["800"], subsets: ["latin"], variable: "--font-poppins", display: "swap" });
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -21,12 +20,14 @@ export const metadata: Metadata = {
     template: `%s — ${site.name}`,
   },
   description: site.description,
+  alternates: { canonical: "/" },
   openGraph: {
     type: "website",
     siteName: site.name,
     title: `${site.name} — Stationery, Phone Accessories & Gym Supplements`,
     description: site.description,
     locale: "en_LK",
+    images: [{ url: "/og.jpg", width: 1200, height: 630, alt: "11-seven — Stationery, Phone Accessories & Gym Supplements, No. 204 Kandy Road, Wattegama" }],
   },
   twitter: { card: "summary_large_image" },
 };
@@ -36,14 +37,46 @@ export const viewport: Viewport = {
   colorScheme: "light",
 };
 
+const localBusiness = {
+  "@context": "https://schema.org",
+  "@type": "Store",
+  name: site.name,
+  description: site.description,
+  url: site.url,
+  telephone: site.phone.tel,
+  ...(site.email ? { email: site.email } : {}),
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: site.address.line1,
+    addressLocality: site.address.city,
+    addressRegion: site.address.region,
+    addressCountry: "LK",
+  },
+};
+
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en" className={`${italiana.variable} ${manrope.variable} ${poppins.variable} h-full`}>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${bodoni.variable} ${manrope.variable} ${poppins.variable} h-full`}
+    >
+      <head>
+        {/* Lets scroll-reveal animations run only when JavaScript is available. */}
+        <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js')" }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusiness) }} />
+      </head>
       <body className="flex min-h-full flex-col bg-page font-body text-ink">
-        <div className="grain" aria-hidden />
-        <GoldFrame />
+        <a
+          href="#main"
+          className="sr-only z-[100] rounded-full bg-maroon-700 px-5 py-3 text-sm font-semibold text-cream focus:not-sr-only focus:fixed focus:left-4 focus:top-4"
+        >
+          Skip to content
+        </a>
         <Header />
-        <main className="flex-1">{children}</main>
+        <main id="main" className="flex-1">
+          {children}
+        </main>
         <Footer />
       </body>
     </html>

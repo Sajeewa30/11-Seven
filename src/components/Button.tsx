@@ -12,10 +12,10 @@ type Variant = "primary" | "gold" | "outline" | "outlineLight" | "ghost";
 type Size = "sm" | "md" | "lg";
 
 const variants: Record<Variant, string> = {
-  primary: "btn-shine bg-maroon-700 text-cream hover:bg-maroon-600 hover:shadow-lift",
-  gold: "btn-shine bg-gold-500 text-ink hover:bg-gold-400 hover:shadow-lift",
-  outline: "border border-maroon-700/50 text-maroon-700 hover:border-maroon-700 hover:bg-maroon-700/10",
-  outlineLight: "border border-cream/50 text-cream hover:border-cream hover:bg-cream/10",
+  primary: "bg-maroon-700 text-cream hover:bg-maroon-600 hover:shadow-lift",
+  gold: "bg-gold-400 text-ink hover:bg-gold-300 hover:shadow-lift",
+  outline: "border-2 border-maroon-700 text-maroon-700 hover:border-maroon-700 hover:bg-maroon-700/10",
+  outlineLight: "border-2 border-cream/70 text-cream hover:border-cream hover:bg-cream/10",
   ghost: "text-ink-muted hover:text-ink",
 };
 
@@ -26,7 +26,7 @@ const sizes: Record<Size, string> = {
 };
 
 const baseClass =
-  "inline-flex items-center justify-center gap-2.5 rounded-full font-semibold tracking-[0.04em] transition-all duration-300 ease-out select-none disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:shadow-none";
+  "inline-flex items-center justify-center gap-2.5 rounded-full font-semibold transition-all duration-300 ease-out select-none disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:shadow-none";
 
 type CommonProps = {
   variant?: Variant;
