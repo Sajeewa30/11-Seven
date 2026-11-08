@@ -32,12 +32,12 @@ const values = [
   },
 ];
 
-/** Photo beside "Our story" (5:6 portrait). Swap the file for a real shop photo when one is available,
- *  or set to null to show the story without a photo. */
+/** Shop photo beside "Our story" (4:3 landscape). Set to null to show the story without a photo. */
 const storyImage = {
   src: "/images/about.jpg",
-  alt: "Inside the shop: supplement tubs on the back shelves, chargers and phone cases on wall hooks, and stationery on the shelves beside the counter",
-} as { src: string; alt: string } | null;
+  alt: "The 11-seven shopfront on Kandy Road, Wattegama, lit up in the evening with the door open",
+  caption: "Our shop at No. 204, Kandy Road, Wattegama",
+} as { src: string; alt: string; caption: string } | null;
 
 const facts = [
   { label: "Opened", value: site.grandOpening },
@@ -57,7 +57,7 @@ export default function AboutPage() {
       {/* Story */}
       <section className="container-x">
         <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
-          <Reveal className={storyImage ? "lg:col-span-7" : "max-w-3xl lg:col-span-12"}>
+          <Reveal className={storyImage ? "lg:col-span-6" : "max-w-3xl lg:col-span-12"}>
             <h2 className="font-display text-3xl font-medium leading-tight text-ink sm:text-4xl">Our story</h2>
             <div className="mt-6 space-y-5 text-lg leading-relaxed text-ink-muted">
               <p>
@@ -76,31 +76,36 @@ export default function AboutPage() {
                 training for their next goal, we’d love to see you in the shop.
               </p>
             </div>
-
-            <ul className="mt-8 grid gap-5 rounded-card border border-gold-600/30 bg-linen p-6 sm:grid-cols-3 sm:gap-6">
-              {facts.map((f) => (
-                <li key={f.label}>
-                  <p className="text-xs font-bold uppercase tracking-[0.18em] text-gold-700">{f.label}</p>
-                  <p className="mt-1 font-bold leading-snug text-ink">{f.value}</p>
-                </li>
-              ))}
-            </ul>
           </Reveal>
 
           {storyImage && (
-            <Reveal delay={100} className="lg:col-span-5">
-              <div className="surface relative mx-auto aspect-[5/6] max-w-md overflow-hidden rounded-card lg:max-w-none">
-                <Image
-                  src={storyImage.src}
-                  alt={storyImage.alt}
-                  fill
-                  sizes="(min-width: 1024px) 34vw, 448px"
-                  className="object-cover"
-                />
-              </div>
+            <Reveal delay={100} className="lg:col-span-6">
+              <figure>
+                <div className="surface relative aspect-[4/3] overflow-hidden rounded-card">
+                  <Image
+                    src={storyImage.src}
+                    alt={storyImage.alt}
+                    fill
+                    sizes="(min-width: 1024px) 40vw, 100vw"
+                    className="object-cover"
+                  />
+                </div>
+                <figcaption className="mt-3 text-sm text-ink-muted">{storyImage.caption}</figcaption>
+              </figure>
             </Reveal>
           )}
         </div>
+
+        <Reveal>
+          <ul className="mt-12 grid gap-5 rounded-card border border-gold-600/30 bg-linen p-6 sm:grid-cols-3 sm:gap-8 sm:p-8">
+            {facts.map((f) => (
+              <li key={f.label}>
+                <p className="text-xs font-bold uppercase tracking-[0.18em] text-gold-700">{f.label}</p>
+                <p className="mt-1 text-lg font-bold leading-snug text-ink">{f.value}</p>
+              </li>
+            ))}
+          </ul>
+        </Reveal>
       </section>
 
       {/* Values */}

@@ -18,7 +18,7 @@ export const site = {
     city: "Wattegama",
     region: "Central Province",
     country: "Sri Lanka",
-    mapsUrl: "https://www.google.com/maps/search/?api=1&query=11-seven+No.+204+Kandy+Road+Wattegama",
+    mapsUrl: "https://maps.app.goo.gl/U1p9GfakWGwrepps7",
   },
   phone: {
     display: "+94 71 491 3832",
