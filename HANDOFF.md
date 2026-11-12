@@ -1,21 +1,31 @@
 # 11-seven website — hand-off notes
 
-## 1. Domain check (8 Nov 2026)
+## 1. Domain: 11seven.lk
 
-- **117.lk is not live and cannot be registered.** The official LK Domain Registry (domains.lk) shows
-  *"Domain name you searched is restricted"* for `117.lk`, and the .lk registry's own nameservers report it as
-  non-existent. (117 is Sri Lanka's national disaster-management hotline number, which is probably why it is reserved.)
-- **11seven.lk** and **11-seven.lk** were both **available** (unregistered) on the same date — LKR 8,000/yr (Standard)
-  or LKR 5,000/yr (Economy). `11seven.com.lk` / `11-seven.com.lk` are LKR 1,000/yr.
-- `11seven.com` and `11-seven.com` are already registered by someone (GoDaddy / NameBright) — confirm whether that's the client.
+The client's domain is **11seven.lk**, registered for one year (renew before it expires in about November 2027).
+(117.lk, mentioned at first, is a restricted name at the .lk registry and can't be registered.)
 
-**Ask the client:** the exact domain he paid for, where he bought it, and the receipt or registrar login.
+**Status on 12 Nov 2026:** the LK Domain Registry search shows *"11seven.lk Domain name is already REQUESTED … Category -
+Economy"*, and the .lk nameservers have no record of it. So the application is in, but the domain is **not active
+yet** and doesn't load anywhere. In the registry account (register.domains.lk), check whether anything is still pending,
+such as payment confirmation, documents or approval.
+
+**Connecting it to Netlify once it's active:**
+
+1. Netlify → the site → *Domain management* → *Add a domain* → `11seven.lk` → choose **Set up Netlify DNS**. Netlify
+   shows four nameservers.
+2. In the registry account, open 11seven.lk → *Name servers* → replace them with Netlify's four, then save.
+   (If the registry lets you edit DNS records instead, add `A @ 75.2.60.5` and `CNAME www 11-seven.netlify.app`.)
+3. Once DNS updates (usually a few hours, up to 48), Netlify issues the free HTTPS certificate automatically. Make
+   `11seven.lk` the **primary domain**, so `www` and the netlify.app address redirect to it.
+4. Trigger a fresh deploy. The site reads Netlify's primary domain at build time, so canonical links, the sitemap and
+   link-preview images switch to `https://11seven.lk` without any code change.
 
 ## 2. Information still needed from the client
 
 | # | Item | Why |
 | --- | --- | --- |
-| 1 | Final domain + registrar login (see above) | To connect the site on Vercel |
+| 1 | Finish 11seven.lk activation, and registry login for the nameservers (see above) | The registry still shows it as "Requested" |
 | 2 | School-season discount details (e.g. % off, minimum bill, end date) | Page currently says "special school-season prices", Nov–Dec 2026 |
 | 3 | KOKO merchant approval status | Don't share the School Season page widely until KOKO is active at the counter |
 | 4 | Store pickup hours: 6 am or 8 am? | The client's delivery policy says pickup from 6.00 am, but opening hours are 8 am – 11 pm. The site uses the opening hours |

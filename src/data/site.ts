@@ -8,9 +8,15 @@ export const site = {
   name: "11-seven",
   legalName: "11-seven Stationery & Phone Accessories",
   tagline: "Stationery · Phone Accessories · Gym Supplements",
-  /** Live address of the site — used for canonical URLs, the sitemap and social previews.
-   *  Set NEXT_PUBLIC_SITE_URL in Vercel once the final domain is connected. */
-  url: process.env.NEXT_PUBLIC_SITE_URL || "https://11-seven.netlify.app",
+  /** Live address of the site — used for canonical URLs, the sitemap and link-preview images.
+   *  On Netlify, `URL` is the site's primary domain at build time: the netlify.app address until
+   *  11seven.lk is set as the primary domain, then https://11seven.lk automatically.
+   *  NEXT_PUBLIC_SITE_URL overrides it on any host. */
+  url:
+    process.env.NEXT_PUBLIC_SITE_URL ||
+    process.env.URL ||
+    (process.env.VERCEL_PROJECT_PRODUCTION_URL ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}` : "") ||
+    "https://11seven.lk",
   description:
     "11-seven is a stationery, mobile phone accessories and gym supplements shop at No. 204 Kandy Road, Wattegama, with printing, photo and reload services. Open every day, 8 am – 11 pm.",
   address: {
