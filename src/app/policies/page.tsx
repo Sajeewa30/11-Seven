@@ -4,52 +4,127 @@ import { site } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "Store policies",
-  description: "Returns, exchanges, KOKO instalment payments and privacy at 11-seven, Wattegama.",
+  description:
+    "Privacy, returns and refunds, terms and conditions, delivery and store pickup, and payment policies for 11-seven, Wattegama.",
   alternates: { canonical: "/policies" },
 };
 
-const sections = [
-  {
-    id: "returns",
-    title: "Returns & exchanges",
-    body: [
-      "Unused items in their original packaging can be exchanged within 7 days of purchase with the receipt.",
-      "For hygiene and safety reasons, opened supplements cannot be returned. Sealed, unopened supplements can be exchanged within 7 days.",
-      "Faulty phone accessories are replaced or repaired in line with the manufacturer’s warranty. Please bring the item, its packaging and your receipt.",
-      "Textbooks and exercise books can be exchanged if they are unmarked and in the same condition as sold — for example, if the wrong grade or edition was picked up.",
-    ],
-  },
-  {
-    id: "koko",
-    title: "KOKO instalment payments",
-    body: [
-      "During the school season you can pay with KOKO, a buy-now-pay-later service that splits your bill into three instalments. The first instalment is paid at the time of purchase and the remaining two are collected by KOKO over the following two months.",
-      "KOKO payments are subject to KOKO’s own terms, fees and approval checks. Instalment schedules, card payments and any questions about your KOKO account are handled by KOKO.",
-      "If an item bought with KOKO is returned or exchanged, any refund is processed back through KOKO rather than in cash.",
-    ],
-  },
-  {
-    id: "orders",
-    title: "WhatsApp & phone orders",
-    body: [
-      "You can send us a book list or a product request on WhatsApp or by phone. We will confirm availability and the total before preparing your order.",
-      "Orders are held for collection from the shop for 7 days after we tell you they are ready, unless we agree otherwise.",
-    ],
-  },
+interface PolicySection {
+  id: string;
+  title: string;
+  intro: string;
+  items: { label: string; text: string }[];
+}
+
+const openingHours = site.hours.map((h) => `${h.time}, ${h.days}`).join("; ");
+
+const sections: PolicySection[] = [
   {
     id: "privacy",
-    title: "Privacy",
-    body: [
-      "This website is for information only. It does not use contact forms, accounts or tracking cookies, and it does not collect personal information.",
-      "If you contact us by phone, WhatsApp or email, we use your details only to reply to you and to handle your order. We never sell or share your information with third parties, except KOKO when you choose to pay with KOKO.",
+    title: "1. Privacy Policy",
+    intro:
+      "We handle personal details and documents for printing, reloads and other services, so we take your privacy seriously.",
+    items: [
+      {
+        label: "What we collect",
+        text: "When you place an order, we only ask for your name, phone number, address and email address.",
+      },
+      {
+        label: "Your documents and photos",
+        text: "Personal files and photos you send us for printouts, photo prints, mug prints or typesetting are never shared with any third party.",
+      },
+      {
+        label: "Deleting your files",
+        text: "Once your print job is finished and handed over to you, the files are securely removed from our systems.",
+      },
+      {
+        label: "This website",
+        text: "This website is for information only. It has no forms, accounts or tracking cookies and does not collect any personal information.",
+      },
     ],
   },
   {
-    id: "general",
-    title: "General",
-    body: [
-      "Product ranges, availability and offers can change without notice, and school-season offers are available while stocks last.",
-      "These policies do not affect your statutory rights as a consumer in Sri Lanka.",
+    id: "returns",
+    title: "2. Returns, Refunds & Exchanges",
+    intro: "We sell products and also offer custom printing and payment services, so this policy has three parts.",
+    items: [
+      {
+        label: "Phone accessories and stationery",
+        text: "If a phone accessory or stationery item has a manufacturing defect, bring it back with your bill within 3–7 days of purchase and we will exchange it for another item.",
+      },
+      {
+        label: "Custom printing",
+        text: "For custom orders such as mug prints, T-shirt prints, banners, wedding cards and visiting cards, we cannot give refunds once you have approved the proof and printing has been done.",
+      },
+      {
+        label: "Reloads and bill payments",
+        text: "Reloads and bill payments made to an incorrect phone or account number given by the customer cannot be refunded.",
+      },
+      {
+        label: "KOKO purchases",
+        text: "If an item paid for with KOKO is exchanged or refunded, any refund is processed back through KOKO rather than in cash.",
+      },
+    ],
+  },
+  {
+    id: "terms",
+    title: "3. Terms & Conditions",
+    intro: "These are the rules we follow when accepting orders and providing our services.",
+    items: [
+      {
+        label: "Checking your proof",
+        text: "For typesetting and printing work, we share a draft (proof) before the final print. Checking it carefully, including spelling, and approving it is the customer’s responsibility.",
+      },
+      {
+        label: "Advance payment",
+        text: "Large print jobs, wedding cards, banners and awards (plaques) are confirmed only after a 50% advance payment.",
+      },
+      {
+        label: "Copyright",
+        text: "The customer is responsible for having the legal right to any documents and designs they give us to print.",
+      },
+      {
+        label: "Offers and availability",
+        text: "Product ranges, availability and offers may change without notice. School-season offers are available while stocks last. These terms do not affect your statutory rights as a consumer in Sri Lanka.",
+      },
+    ],
+  },
+  {
+    id: "delivery",
+    title: "4. Delivery & Store Pickup",
+    intro: "How and when you can receive your order.",
+    items: [
+      {
+        label: "Store pickup",
+        text: `Orders placed by phone, WhatsApp or email can be collected from our shop at ${site.address.line1}, ${site.address.city}, during opening hours (${openingHours}).`,
+      },
+      {
+        label: "Courier delivery",
+        text: "We deliver island-wide by courier. Orders reach you within 2–4 working days.",
+      },
+      {
+        label: "Delivery charges",
+        text: "Delivery charges depend on the weight of the parcel and the distance.",
+      },
+    ],
+  },
+  {
+    id: "payment",
+    title: "5. Payments & Contact",
+    intro: "The ways you can pay us and how to reach us for help.",
+    items: [
+      {
+        label: "Payment methods",
+        text: "You can pay by bank transfer, by online payment, or in cash at the shop.",
+      },
+      {
+        label: "KOKO instalments",
+        text: "During the school season you can also pay with KOKO, a buy-now-pay-later service that splits your bill into three instalments: the first at the time of purchase and the other two over the following two months. KOKO payments are subject to KOKO’s own terms, fees and approval checks.",
+      },
+      {
+        label: "Customer support",
+        text: `For any problem, call us on ${site.landline.display} or ${site.phone.display}, or WhatsApp ${site.phone.display}.${site.email ? ` You can also email ${site.email}.` : ""}`,
+      },
     ],
   },
 ];
@@ -59,8 +134,8 @@ export default function PoliciesPage() {
     <>
       <PageHero
         eyebrow="Store policies"
-        title="Returns, payments & privacy."
-        description="The simple rules we follow, so you know exactly what to expect when you shop with us."
+        title="Our policies."
+        description="Privacy, returns, terms, delivery and payments — the simple rules we follow, so you know exactly what to expect when you shop with us."
       />
 
       <section className="container-x">
@@ -81,23 +156,31 @@ export default function PoliciesPage() {
             {sections.map((s) => (
               <article key={s.id} id={s.id} className="scroll-mt-28">
                 <h2 className="font-display text-3xl font-medium text-ink">{s.title}</h2>
-                <div className="mt-5 space-y-4 text-lg leading-relaxed text-ink-muted">
-                  {s.body.map((p) => (
-                    <p key={p.slice(0, 32)}>{p}</p>
+                <p className="mt-3 text-lg leading-relaxed text-ink-muted">{s.intro}</p>
+                <ul className="mt-6 space-y-4">
+                  {s.items.map((item) => (
+                    <li key={item.label} className="rounded-tile border border-gold-600/25 bg-paper p-5">
+                      <h3 className="font-bold text-ink">{item.label}</h3>
+                      <p className="mt-1.5 leading-relaxed text-ink-muted">{item.text}</p>
+                    </li>
                   ))}
-                </div>
+                </ul>
               </article>
             ))}
 
             <div className="rounded-card border border-gold-600/30 bg-linen p-7 text-lg text-ink-muted">
-              Questions about any of these policies? Call or WhatsApp us on{" "}
+              Questions about any of these policies? Call{" "}
+              <a href={`tel:${site.landline.tel}`} className="font-bold text-maroon-700 underline-offset-4 hover:underline">
+                {site.landline.display}
+              </a>{" "}
+              or{" "}
               <a href={`tel:${site.phone.tel}`} className="font-bold text-maroon-700 underline-offset-4 hover:underline">
                 {site.phone.display}
               </a>
               {site.email && (
                 <>
-                  {" "}or email{" "}
-                  <a href={`mailto:${site.email}`} className="font-bold text-maroon-700 underline-offset-4 hover:underline">
+                  , or email{" "}
+                  <a href={`mailto:${site.email}`} className="break-all font-bold text-maroon-700 underline-offset-4 hover:underline">
                     {site.email}
                   </a>
                 </>

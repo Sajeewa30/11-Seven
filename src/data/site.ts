@@ -12,7 +12,7 @@ export const site = {
    *  Set NEXT_PUBLIC_SITE_URL in Vercel once the final domain is connected. */
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://11-seven.netlify.app",
   description:
-    "11-seven is a stationery, mobile phone accessories and gym supplements shop at No. 204 Kandy Road, Wattegama. Genuine products, fair prices and friendly service — all in one stop.",
+    "11-seven is a stationery, mobile phone accessories and gym supplements shop at No. 204 Kandy Road, Wattegama, with printing, photo and reload services. Open every day, 8 am – 11 pm.",
   address: {
     line1: "No. 204, Kandy Road",
     city: "Wattegama",
@@ -20,22 +20,31 @@ export const site = {
     country: "Sri Lanka",
     mapsUrl: "https://maps.app.goo.gl/U1p9GfakWGwrepps7",
   },
+  /** Main number — mobile, for calls and WhatsApp. */
   phone: {
-    display: "+94 71 491 3832",
-    tel: "+94714913832",
-    whatsapp: "https://wa.me/94714913832",
+    display: "077 210 3832",
+    tel: "+94772103832",
+    whatsapp: "https://wa.me/94772103832",
+  },
+  /** Shop landline — calls only. */
+  landline: {
+    display: "081 222 3912",
+    tel: "+94812223912",
   },
   /** Shop email — leave empty to hide it everywhere. */
-  email: "",
-  hours: [
-    { days: "Monday – Saturday", time: "8.30 am – 8.00 pm" },
-    { days: "Sunday & Poya days", time: "9.00 am – 1.00 pm" },
-  ],
+  email: "elevensevencommunication@gmail.com",
+  hours: [{ days: "Monday – Sunday", time: "8.00 am – 11.00 pm" }],
+  /** schema.org opening hours, kept in step with `hours`. */
+  openingHoursSchema: ["Mo-Su 08:00-23:00"],
   /** Social profile links — any left empty are hidden. */
   social: {
-    facebook: "",
+    facebook: "https://www.facebook.com/profile.php?id=61590578387934",
     instagram: "",
-    tiktok: "",
+    tiktok: "https://www.tiktok.com/@11seven46",
+  },
+  socialHandles: {
+    facebook: "11-seven",
+    tiktok: "@11seven46",
   },
   openedOn: "June 2026",
   grandOpening: "Thursday, 18 June 2026",
@@ -97,4 +106,17 @@ export const departments: Department[] = [
     image: "/images/gym-supplements.jpg",
     imageAlt: "Protein tubs, a scoop of protein powder, a shaker bottle and a dumbbell",
   },
+];
+
+/** Printing and everyday services offered at the counter (listed under "What we sell"). */
+export const services = [
+  "Printouts & photocopies",
+  "Photo printing",
+  "Mug & T-shirt printing",
+  "Banners",
+  "Wedding & visiting cards",
+  "Typesetting",
+  "Awards & plaques",
+  "Mobile reloads",
+  "Bill payments",
 ];

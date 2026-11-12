@@ -70,6 +70,11 @@ export default function Footer() {
                   </Link>
                 </li>
               ))}
+              <li>
+                <Link href="/#services" className={colLink}>
+                  Printing &amp; services
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -84,9 +89,15 @@ export default function Footer() {
               </li>
               <li className="flex gap-3">
                 <PhoneCall size={19} className="mt-0.5 shrink-0 text-maroon-700" />
-                <a href={`tel:${site.phone.tel}`} className="hover:text-maroon-700">
-                  {site.phone.display}
-                </a>
+                <span>
+                  <a href={`tel:${site.landline.tel}`} className="hover:text-maroon-700">
+                    {site.landline.display}
+                  </a>
+                  <span aria-hidden> · </span>
+                  <a href={`tel:${site.phone.tel}`} className="hover:text-maroon-700">
+                    {site.phone.display}
+                  </a>
+                </span>
               </li>
               <li className="flex gap-3">
                 <WhatsApp size={19} className="mt-0.5 shrink-0 text-maroon-700" />

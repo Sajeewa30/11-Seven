@@ -10,7 +10,7 @@ const items = [
   {
     Icon: Store,
     title: "One stop, close to home",
-    text: "Stationery, phone accessories and supplements in one place, right on Kandy Road.",
+    text: "Stationery, phone accessories, supplements and printing in one place on Kandy Road — open every day, 8 am to 11 pm.",
   },
   {
     Icon: Heart,

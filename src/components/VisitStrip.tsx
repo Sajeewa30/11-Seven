@@ -42,10 +42,17 @@ export default function VisitStrip() {
                 <PhoneCall size={22} className="mt-0.5 shrink-0 text-maroon-700" />
                 <div>
                   <p className="font-bold text-ink">Phone &amp; WhatsApp</p>
-                  <p className="mt-1">
-                    <a href={`tel:${site.phone.tel}`} className="text-ink-muted underline-offset-4 hover:text-maroon-700 hover:underline">
+                  <p className="mt-1 text-ink-muted">
+                    <a href={`tel:${site.landline.tel}`} className="underline-offset-4 hover:text-maroon-700 hover:underline">
+                      {site.landline.display}
+                    </a>{" "}
+                    (shop)
+                  </p>
+                  <p className="mt-1 text-ink-muted">
+                    <a href={`tel:${site.phone.tel}`} className="underline-offset-4 hover:text-maroon-700 hover:underline">
                       {site.phone.display}
-                    </a>
+                    </a>{" "}
+                    (call &amp; WhatsApp)
                   </p>
                 </div>
               </div>

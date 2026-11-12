@@ -1,5 +1,6 @@
 import Hero from "@/components/Hero";
 import Departments from "@/components/Departments";
+import Services from "@/components/Services";
 import SectionHeading from "@/components/SectionHeading";
 import SchoolSeasonBanner from "@/components/SchoolSeasonBanner";
 import ValueProps from "@/components/ValueProps";
@@ -17,11 +18,14 @@ export default function HomePage() {
           <SectionHeading
             eyebrow="What we sell"
             title="Three shops in one."
-            description="Whether it’s a term’s worth of exercise books, a new phone charger or your next tub of protein, you’ll find it at 11-seven."
+            description="Whether it’s a term’s worth of exercise books, a new phone charger, your next tub of protein or a print job, you’ll find it at 11-seven."
           />
         </Reveal>
         <div className="mt-12">
           <Departments />
+        </div>
+        <div className="mt-5">
+          <Services />
         </div>
       </section>
 

@@ -43,8 +43,11 @@ const localBusiness = {
   name: site.name,
   description: site.description,
   url: site.url,
-  telephone: site.phone.tel,
+  telephone: site.landline.tel,
   ...(site.email ? { email: site.email } : {}),
+  openingHours: site.openingHoursSchema,
+  hasMap: site.address.mapsUrl,
+  sameAs: Object.values(site.social).filter(Boolean),
   address: {
     "@type": "PostalAddress",
     streetAddress: site.address.line1,

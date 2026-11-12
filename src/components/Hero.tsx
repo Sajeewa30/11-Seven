@@ -12,15 +12,15 @@ export default function Hero() {
 
       <div className="container-x relative grid items-center gap-12 lg:grid-cols-12 lg:gap-10">
         <div className="lg:col-span-7">
-          <p className="eyebrow animate-rise">Now open · {site.address.line1}, {site.address.city}</p>
+          <p className="eyebrow animate-rise">Open every day, 8 am – 11 pm · {site.address.line1}, {site.address.city}</p>
 
           <h1 className="mt-6 animate-rise font-display text-[2.75rem] font-medium leading-[1.05] text-ink [animation-delay:80ms] sm:text-6xl lg:text-[4.25rem]">
             Everything for school, your phone &amp; the gym.
           </h1>
 
           <p className="mt-6 max-w-xl animate-rise text-lg leading-relaxed text-ink-muted [animation-delay:160ms]">
-            11-seven is your local shop in {site.address.city} for stationery, mobile phone accessories and gym
-            supplements — genuine products, fair prices and friendly service, all under one roof.
+            11-seven is your local shop in {site.address.city} for stationery, mobile phone accessories, gym
+            supplements and printing — genuine products, fair prices and friendly service, all under one roof.
           </p>
 
           <div className="mt-9 flex animate-rise flex-wrap items-center gap-3 [animation-delay:240ms]">

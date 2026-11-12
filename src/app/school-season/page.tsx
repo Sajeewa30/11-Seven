@@ -68,11 +68,11 @@ const faqs = [
   },
   {
     q: "Can I order without coming to the shop?",
-    a: "Yes. Send a photo of your book list on WhatsApp and we’ll confirm what’s available and the total. You can collect from the shop when it’s ready.",
+    a: "Yes. Send a photo of your book list on WhatsApp and we’ll confirm what’s available and the total. Collect it from the shop when it’s ready, or we can send it island-wide by courier (2–4 working days; delivery charges depend on weight and distance).",
   },
   {
-    q: "Can I still pay in cash?",
-    a: "Of course. KOKO is optional — you’re welcome to pay the full amount in the shop.",
+    q: "Can I pay another way?",
+    a: "Of course. KOKO is optional — you can pay the full amount in cash at the shop, by bank transfer or by online payment.",
   },
 ];
 
