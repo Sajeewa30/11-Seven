@@ -1,5 +1,6 @@
+import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Shirt } from "./Icons";
+import { ArrowRight } from "./Icons";
 import Reveal from "./Reveal";
 import { forge } from "@/data/site";
 
@@ -12,17 +13,15 @@ export default function ClothingTeaser() {
           href="/clothing"
           className="group flex flex-col gap-6 rounded-card border border-gold-600/30 bg-linen p-8 transition-shadow hover:shadow-card sm:p-10 md:flex-row md:items-center md:justify-between"
         >
-          <div className="flex items-start gap-5">
-            <span className="grid h-14 w-14 shrink-0 place-items-center rounded-full bg-maroon-700 text-cream">
-              <Shirt size={26} />
-            </span>
+          <div className="flex items-center gap-5">
+            <Image src={forge.logo} alt={`${forge.name} logo`} width={72} height={72} className="h-16 w-16 shrink-0 sm:h-[4.5rem] sm:w-[4.5rem]" />
             <div>
               <p className="eyebrow">Custom clothing</p>
               <h2 className="mt-2 font-display text-3xl font-medium leading-tight text-ink sm:text-4xl">
                 Polos and T-shirts with your logo.
               </h2>
               <p className="mt-2 text-ink-muted">
-                Made by {forge.name} for staff, teams, clubs and events.
+                Premium polos, sublimation T-shirts and branded apparel by {forge.name}.
               </p>
             </div>
           </div>

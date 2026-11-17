@@ -174,9 +174,14 @@ export const forge = {
   name: "FORGE creations",
   intro:
     "A promotional-products company that supplies branded clothing and all kinds of promotional items around the island and overseas.",
+  tagline: "Forging your brand, creating impact.",
+  /** Calls and WhatsApp (FORGE's posters say "Call or WhatsApp: 071-1115445"). */
   phone: {
     display: "071 111 5445",
     tel: "+94711115445",
+    whatsapp: "https://wa.me/94711115445",
   },
   facebook: "https://www.facebook.com/profile.php?id=61591696298829",
+  /** Round badge logo from FORGE's Facebook profile picture (transparent corners). */
+  logo: "/images/forge/forge-logo.webp",
 } as const;

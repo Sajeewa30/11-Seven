@@ -96,10 +96,14 @@ _Confirmed 8 Nov 2026: the shop sells gym supplements. Google Maps link: https:/
 ## 4. Clothing page, skincare and phone posters (added 17 Nov 2026)
 
 - **`/clothing`** (in the main menu): custom polos and T-shirts made by **FORGE creations**. As agreed, orders go to
-  FORGE directly: phone 071 111 5445 and Facebook https://www.facebook.com/profile.php?id=61591696298829. The text uses
-  only what FORGE's Facebook page shows (custom branded clothing and promotional items, island-wide and overseas). It
-  has no photo yet. FORGE's Facebook post photo (polos and T-shirts on a workbench) could be added if FORGE is happy
-  for it to be used.
+  FORGE directly: call or WhatsApp 071 111 5445, and Facebook https://www.facebook.com/profile.php?id=61591696298829.
+  Everything on the page comes from FORGE's Facebook page and posters: the premium polo collection (bulk, 100+),
+  sublimation T-shirts and fabrics, branded apparel, mugs and plates, flex/digital/offset printing, island-wide delivery.
+- **FORGE logo and photos** (`public/images/forge/`, added 17 Nov 2026 from FORGE's Facebook page): round logo badge
+  (hero card, closing call-to-action, home-page clothing link), cover photo (hero background), polo collection banner
+  (wide on desktop, portrait on phones) and a gallery of five posters/photos. The banner and the mugs poster had
+  `www.forgecreations.lk` printed on them; that domain doesn't resolve, so those strips were cropped off (the mugs strip
+  also carried a second number, 025-4627378, that we haven't confirmed).
 - **Home → Phone accessories:** the shop's two posters (OTG card readers; iPhone cases and cables),
   `public/images/phone-otg-reader.jpg` and `phone-cases.jpg`, cropped from the phone screenshots.
 - **Home → Skincare & beauty** (`/#skincare`): SADOER Collagen Sakura gel, Chamomile face mask and Vitamin C gel, from
