@@ -96,7 +96,7 @@ _Confirmed 8 Nov 2026: the shop sells gym supplements. Google Maps link: https:/
 ## 4. Clothing page, skincare and phone posters (added 17 Nov 2026)
 
 - **`/clothing`** (in the main menu): custom polos and T-shirts made by **FORGE creations**. As agreed, orders go to
-  FORGE directly: call or WhatsApp 071 111 5445, and Facebook https://www.facebook.com/profile.php?id=61591696298829.
+  FORGE directly: call 071 111 5445 (not on WhatsApp, so no WhatsApp link) or Facebook https://www.facebook.com/profile.php?id=61591696298829.
   Everything on the page comes from FORGE's Facebook page and posters: the premium polo collection (bulk, 100+),
   sublimation T-shirts and fabrics, branded apparel, mugs and plates, flex/digital/offset printing, island-wide delivery.
 - **FORGE logo and photos** (`public/images/forge/`, added 17 Nov 2026 from FORGE's Facebook page): round logo badge

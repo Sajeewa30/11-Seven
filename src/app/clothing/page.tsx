@@ -9,7 +9,7 @@ import { forge, site } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "Custom clothing — polos & T-shirts by FORGE creations",
-  description: `Premium polo shirts, sublimation-printed T-shirts and branded apparel by ${forge.name}, with island-wide delivery. Call or WhatsApp ${forge.phone.display}.`,
+  description: `Premium polo shirts, sublimation-printed T-shirts and branded apparel by ${forge.name}, with island-wide delivery. Call ${forge.phone.display} or message on Facebook.`,
   alternates: { canonical: "/clothing" },
   openGraph: {
     title: `Custom clothing by ${forge.name}`,
@@ -92,7 +92,7 @@ const gallery = [
   {
     src: "/images/forge/forge-printing.jpg",
     width: 640,
-    height: 1147,
+    height: 1010,
     alt: "FORGE creations printing solutions: digital printing for posters and flyers, and offset printing for business cards, brochures, labels and books, with island-wide delivery",
     caption: "Digital and offset printing",
   },
@@ -114,13 +114,9 @@ function ContactButtons({ dark = false }: { dark?: boolean }) {
         <PhoneCall size={18} />
         Call {forge.phone.display}
       </Button>
-      <Button href={forge.phone.whatsapp} variant={dark ? "outlineLight" : "outline"} size="lg" target="_blank" rel="noreferrer">
-        <WhatsApp size={18} />
-        WhatsApp
-      </Button>
       <Button href={forge.facebook} variant={dark ? "outlineLight" : "outline"} size="lg" target="_blank" rel="noreferrer">
         <Facebook size={18} />
-        Facebook
+        Message on Facebook
       </Button>
     </div>
   );
@@ -183,12 +179,6 @@ export default function ClothingPage() {
                   </a>
                 </li>
                 <li className="flex gap-4">
-                  <WhatsApp size={22} className="mt-0.5 shrink-0 text-gold-300" />
-                  <a href={forge.phone.whatsapp} target="_blank" rel="noreferrer" className="text-lg font-semibold text-cream hover:underline">
-                    WhatsApp {forge.phone.display}
-                  </a>
-                </li>
-                <li className="flex gap-4">
                   <Facebook size={22} className="mt-0.5 shrink-0 text-gold-300" />
                   <a href={forge.facebook} target="_blank" rel="noreferrer" className="text-lg font-semibold text-cream hover:underline">
                     {forge.name} on Facebook
@@ -211,7 +201,7 @@ export default function ClothingPage() {
             eyebrow="New collection"
             title="Premium polos, in bulk."
             description="FORGE’s new polo collection is sold to online sellers and shop owners, with a minimum order of 100 pieces."
-            action={{ href: forge.phone.whatsapp, label: "Ask about bulk prices" }}
+            action={{ href: `tel:${forge.phone.tel}`, label: "Call about bulk prices" }}
           />
         </Reveal>
         <Reveal delay={100}>
@@ -348,7 +338,7 @@ export default function ClothingPage() {
                   Get a free quote from {forge.name}.
                 </h2>
                 <p className="mt-3 max-w-xl text-lg text-ink-muted">
-                  Call or WhatsApp with what you need, and FORGE will take it from there.
+                  Call or message on Facebook with what you need, and FORGE will take it from there.
                 </p>
               </div>
             </div>

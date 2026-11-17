@@ -175,11 +175,10 @@ export const forge = {
   intro:
     "A promotional-products company that supplies branded clothing and all kinds of promotional items around the island and overseas.",
   tagline: "Forging your brand, creating impact.",
-  /** Calls and WhatsApp (FORGE's posters say "Call or WhatsApp: 071-1115445"). */
+  /** Calls only — this number is not on WhatsApp (confirmed 17 Nov 2026), so FORGE gets Call + Facebook, no WhatsApp. */
   phone: {
     display: "071 111 5445",
     tel: "+94711115445",
-    whatsapp: "https://wa.me/94711115445",
   },
   facebook: "https://www.facebook.com/profile.php?id=61591696298829",
   /** Round badge logo from FORGE's Facebook profile picture (transparent corners). */
