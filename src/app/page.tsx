@@ -1,6 +1,9 @@
 import Hero from "@/components/Hero";
 import Departments from "@/components/Departments";
 import Services from "@/components/Services";
+import PhoneSpotlight from "@/components/PhoneSpotlight";
+import Skincare from "@/components/Skincare";
+import ClothingTeaser from "@/components/ClothingTeaser";
 import SectionHeading from "@/components/SectionHeading";
 import SchoolSeasonBanner from "@/components/SchoolSeasonBanner";
 import ValueProps from "@/components/ValueProps";
@@ -17,8 +20,8 @@ export default function HomePage() {
         <Reveal>
           <SectionHeading
             eyebrow="What we sell"
-            title="Three shops in one."
-            description="Whether it’s a term’s worth of exercise books, a new phone charger, your next tub of protein or a print job, you’ll find it at 11-seven."
+            title="Everything under one roof."
+            description="Whether it’s a term’s worth of exercise books, a new phone charger, your next tub of protein, skincare or a print job, you’ll find it at 11-seven."
           />
         </Reveal>
         <div className="mt-12">
@@ -35,6 +38,12 @@ export default function HomePage() {
           <SchoolSeasonBanner />
         </Reveal>
       </section>
+
+      <PhoneSpotlight />
+
+      <Skincare />
+
+      <ClothingTeaser />
 
       {/* Why us */}
       <section className="container-x pt-20 lg:pt-28">

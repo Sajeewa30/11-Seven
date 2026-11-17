@@ -7,7 +7,7 @@ interface WordmarkProps {
 /** The "11-seven" wordmark — gold metallic gradient recreated from the grand-opening artwork. */
 export function Wordmark({ className = "" }: WordmarkProps) {
   return (
-    <span className={`font-brand font-extrabold leading-none tracking-[-0.045em] text-gold-gradient ${className}`}>
+    <span className={`whitespace-nowrap font-brand font-extrabold leading-none tracking-[-0.045em] text-gold-gradient ${className}`}>
       11-seven
     </span>
   );

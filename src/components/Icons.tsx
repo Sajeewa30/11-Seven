@@ -201,3 +201,16 @@ export const Calendar = (p: IconProps) => (
     <path d="M3.5 10h17M8 3v4M16 3v4" />
   </svg>
 );
+
+export const Shirt = (p: IconProps) => (
+  <svg {...base(p)}>
+    <path d="M9 3.5 4 5.5 2.5 10l3 1.2V20.5h13V11.2l3-1.2L20 5.5l-5-2a3 3 0 0 1-6 0Z" />
+  </svg>
+);
+
+export const Droplet = (p: IconProps) => (
+  <svg {...base(p)}>
+    <path d="M12 3.5s-6 6.4-6 10.7a6 6 0 0 0 12 0C18 9.9 12 3.5 12 3.5Z" />
+    <path d="M9.5 14.5a2.6 2.6 0 0 0 2.5 2.5" />
+  </svg>
+);

@@ -43,7 +43,7 @@ export default function Header() {
         <div className="container-x flex h-[4.5rem] items-center justify-between gap-6">
           <Logo size="md" />
 
-          <nav aria-label="Primary" className="hidden items-center gap-8 md:flex">
+          <nav aria-label="Primary" className="hidden items-center gap-5 md:flex lg:gap-8">
             {nav.map((item) => {
               const active = isActive(item.href);
               return (
@@ -51,7 +51,7 @@ export default function Header() {
                   key={item.href}
                   href={item.href}
                   aria-current={active ? "page" : undefined}
-                  className={`link-draw text-[0.95rem] font-semibold transition-colors ${
+                  className={`link-draw whitespace-nowrap text-[0.95rem] font-semibold transition-colors ${
                     active ? "text-maroon-700" : "text-ink-muted hover:text-ink"
                   }`}
                 >

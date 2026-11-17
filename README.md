@@ -10,7 +10,7 @@ Built with Next.js 16 (App Router), React 19, TypeScript and Tailwind CSS v4.
 ```bash
 npm install
 npm run dev      # http://localhost:3000
-npm run build    # production build
+npm run build    # production build (uses webpack: Turbopack failed on the Google Fonts on 17 Nov 2026)
 npm run start    # serve the production build
 npm run lint
 ```
@@ -19,9 +19,10 @@ npm run lint
 
 | Route | What |
 | --- | --- |
-| `/` | Home — hero, what we sell, school-season banner, why us, visit info |
+| `/` | Home — hero, what we sell, school-season banner, phone-accessories posters, skincare, clothing link, why us, visit info |
 | `/about` | Story, shop facts, values (optional photo slot: `storyImage` in the page file) |
 | `/school-season` | School-season offer: book lists, pay in 3 with KOKO, FAQ (shareable link) |
+| `/clothing` | Custom polos and T-shirts made by FORGE creations; orders go to FORGE's own phone and Facebook |
 | `/contact` | Call, WhatsApp, email (when set), directions, opening hours |
 | `/policies` | Returns & exchanges, KOKO payments, WhatsApp orders, privacy |
 
@@ -32,6 +33,9 @@ npm run lint
 | Address, phone, email, hours, social links | `src/data/site.ts` → `site` |
 | School-season dates | `src/data/site.ts` → `schoolSeason` |
 | Departments and the items listed under each | `src/data/site.ts` → `departments` |
+| Phone-accessory posters on the home page | `src/data/site.ts` → `phonePosters` |
+| Skincare products on the home page | `src/data/site.ts` → `skincare` |
+| FORGE creations name, phone and Facebook (Clothing page) | `src/data/site.ts` → `forge` |
 | Colours, fonts | `src/app/globals.css` |
 | Store policy wording | `src/app/policies/page.tsx` |
 

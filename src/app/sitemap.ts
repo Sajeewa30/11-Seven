@@ -3,7 +3,7 @@ import { site } from "@/data/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
-  return ["", "/school-season", "/about", "/contact", "/policies"].map((path) => ({
+  return ["", "/school-season", "/clothing", "/about", "/contact", "/policies"].map((path) => ({
     url: `${site.url}${path}`,
     lastModified: now,
     changeFrequency: "monthly",

@@ -7,18 +7,42 @@ The client's domain is **11seven.lk**, registered for one year (renew before it 
 
 **Status on 12 Nov 2026:** the LK Domain Registry search shows *"11seven.lk Domain name is already REQUESTED … Category -
 Economy"*, and the .lk nameservers have no record of it. So the application is in, but the domain is **not active
-yet** and doesn't load anywhere. In the registry account (register.domains.lk), check whether anything is still pending,
-such as payment confirmation, documents or approval.
+yet** and doesn't load anywhere.
 
-**Connecting it to Netlify once it's active:**
+### Why "Requested", and how to fix it
 
-1. Netlify → the site → *Domain management* → *Add a domain* → `11seven.lk` → choose **Set up Netlify DNS**. Netlify
-   shows four nameservers.
-2. In the registry account, open 11seven.lk → *Name servers* → replace them with Netlify's four, then save.
-   (If the registry lets you edit DNS records instead, add `A @ 75.2.60.5` and `CNAME www 11-seven.netlify.app`.)
-3. Once DNS updates (usually a few hours, up to 48), Netlify issues the free HTTPS certificate automatically. Make
+The registry's process is: online application → **verification email** to the admin contact (click within 24 hours) →
+registry **approval** → **payment within 3 working days** of approval (otherwise cancelled) → registered within about
+one working day of payment. "Requested" means it hasn't finished that chain. To unblock it:
+
+1. Log in at **register.domains.lk** with the account that applied (the client's, or the agent's if an agent applied)
+   and open the domain. Look for an unpaid invoice, a "pay now" button or a request for details.
+2. Search the admin contact's inbox, including spam, for emails from domains.lk: the verification link, the approval
+   and payment email, or a request for documents.
+3. If it's already paid, have the receipt ready. If it's still "Requested" one or two working days after payment,
+   contact the registry hostmaster: hostmaster@domains.lk, +94 11 4 216 061 (from the official IANA record).
+   If an agent registered it, ask the agent instead.
+
+### Hosting: Netlify (free) — not Vercel
+
+- **Netlify Free** includes custom domains with free HTTPS. It has a 300-credit monthly allowance: a production deploy
+  uses 15 credits and bandwidth 20 per GB. That's plenty for a local shop site; keep pushes to `main` batched, since
+  every push is a production deploy. Netlify DNS is free too.
+- **Vercel Hobby** (free) is for *non-commercial personal use only*, so a business site needs Vercel Pro (US$20/month).
+  Keep the Vercel deploy as a preview at most, and don't connect the domain there.
+
+### Connecting 11seven.lk to Netlify (once it's active)
+
+1. Netlify → the site → *Domain management* → *Add a domain* → `11seven.lk`.
+2. Point the domain at Netlify in **one** of two ways, both free:
+   - **A — DNS records at the registry**, if its dashboard lets you edit records: `A @ 75.2.60.5` and
+     `CNAME www 11-seven.netlify.app`.
+   - **B — Netlify DNS:** choose *Set up Netlify DNS* in Netlify. It shows four nameservers. Enter those as the
+     domain's name servers in the registry account, or email the registry from the registrant, admin or technical
+     contact asking them to change them.
+3. DNS updates take from a few hours up to 48. Netlify then issues the free HTTPS certificate automatically. Make
    `11seven.lk` the **primary domain**, so `www` and the netlify.app address redirect to it.
-4. Trigger a fresh deploy. The site reads Netlify's primary domain at build time, so canonical links, the sitemap and
+4. Trigger one fresh deploy. The site reads Netlify's primary domain at build time, so canonical links, the sitemap and
    link-preview images switch to `https://11seven.lk` without any code change.
 
 ## 2. Information still needed from the client
@@ -68,3 +92,18 @@ The About page now uses the real shopfront photo (replacing the AI interior). To
 over `public/images/about.jpg` and update `alt` and `caption` in `storyImage` at the top of `src/app/about/page.tsx`.
 
 _Confirmed 8 Nov 2026: the shop sells gym supplements. Google Maps link: https://maps.app.goo.gl/U1p9GfakWGwrepps7_
+
+## 4. Clothing page, skincare and phone posters (added 17 Nov 2026)
+
+- **`/clothing`** (in the main menu): custom polos and T-shirts made by **FORGE creations**. As agreed, orders go to
+  FORGE directly: phone 071 111 5445 and Facebook https://www.facebook.com/profile.php?id=61591696298829. The text uses
+  only what FORGE's Facebook page shows (custom branded clothing and promotional items, island-wide and overseas). It
+  has no photo yet. FORGE's Facebook post photo (polos and T-shirts on a workbench) could be added if FORGE is happy
+  for it to be used.
+- **Home → Phone accessories:** the shop's two posters (OTG card readers; iPhone cases and cables),
+  `public/images/phone-otg-reader.jpg` and `phone-cases.jpg`, cropped from the phone screenshots.
+- **Home → Skincare & beauty** (`/#skincare`): SADOER Collagen Sakura gel, Chamomile face mask and Vitamin C gel, from
+  the client's Meta AI images (`public/images/skincare-*.jpg`). Edit names and text in `skincare` in `src/data/site.ts`.
+- **Build:** `npm run build` now runs `next build --webpack`, and `netlify.toml` makes Netlify use it. On 17 Nov 2026
+  the Turbopack production build failed on the Google Fonts ("next/font/google queries have exactly one entry"), even
+  for the 12 Nov code that built fine then. The webpack build is clean. Switch back once a newer Next.js fixes it.

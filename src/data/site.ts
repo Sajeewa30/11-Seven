@@ -18,7 +18,7 @@ export const site = {
     (process.env.VERCEL_PROJECT_PRODUCTION_URL ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}` : "") ||
     "https://11seven.lk",
   description:
-    "11-seven is a stationery, mobile phone accessories and gym supplements shop at No. 204 Kandy Road, Wattegama, with printing, photo and reload services. Open every day, 8 am – 11 pm.",
+    "11-seven is a stationery, mobile phone accessories, gym supplements and skincare shop at No. 204 Kandy Road, Wattegama, with printing, photo and reload services. Open every day, 8 am – 11 pm.",
   address: {
     line1: "No. 204, Kandy Road",
     city: "Wattegama",
@@ -67,6 +67,7 @@ export const nav = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/school-season", label: "School Season" },
+  { href: "/clothing", label: "Clothing" },
   { href: "/contact", label: "Contact" },
 ] as const;
 
@@ -99,7 +100,7 @@ export const departments: Department[] = [
     name: "Phone Accessories",
     icon: "phone",
     summary: "Genuine accessories that keep your phone protected, charged and connected.",
-    items: ["Chargers & cables", "Back covers & cases", "Tempered glass", "Earphones & headsets", "Power banks"],
+    items: ["Chargers & cables", "Back covers & cases", "Tempered glass", "Earphones & headsets", "Power banks", "Car holders & OTG card readers"],
     image: "/images/phone-accessories.jpg",
     imageAlt: "A phone charger with a coiled cable next to a maroon phone case",
   },
@@ -126,3 +127,56 @@ export const services = [
   "Mobile reloads",
   "Bill payments",
 ];
+
+/** Phone-accessory posters shown in the home page spotlight (the shop's own ads). */
+export const phonePosters = [
+  {
+    src: "/images/phone-otg-reader.jpg",
+    width: 591,
+    height: 710,
+    alt: "11-seven poster: Earldom 5-in-1 OTG card readers, with phone cases, chargers, USB cables, earphones, power banks, screen protectors and car holders",
+  },
+  {
+    src: "/images/phone-cases.jpg",
+    width: 591,
+    height: 800,
+    alt: "11-seven poster: silicone iPhone cases in teal, blue, navy and pink with USB-C cables and a charger",
+  },
+];
+
+/** Skincare products shown in the home page Skincare & Beauty section. Photos are 4:5. */
+export const skincare = [
+  {
+    name: "Collagen Sakura Hydrating Gel",
+    brand: "SADOER",
+    text: "A light moisturising gel with cherry-blossom extract, for soft, hydrated skin.",
+    image: "/images/skincare-collagen-sakura.jpg",
+    imageAlt: "A pink tub of SADOER Collagen Sakura moisturising hydrating gel among cherry blossoms",
+  },
+  {
+    name: "Chamomile Soothing Facial Mask",
+    brand: "SADOER",
+    text: "A single-use sheet mask with chamomile to calm and refresh your skin.",
+    image: "/images/skincare-chamomile-mask.jpg",
+    imageAlt: "A yellow SADOER Chamomile soothing facial mask pack surrounded by chamomile flowers",
+  },
+  {
+    name: "Vitamin C Moisturizing Gel",
+    brand: "SADOER",
+    text: "A 300 g moisturising gel with orange essence and vitamin C for brighter-looking skin.",
+    image: "/images/skincare-vitamin-c.jpg",
+    imageAlt: "An orange tub of SADOER Vitamin C moisturising gel with sliced oranges",
+  },
+];
+
+/** FORGE creations — makes the custom clothing shown on the Clothing page. Orders go to FORGE directly. */
+export const forge = {
+  name: "FORGE creations",
+  intro:
+    "A promotional-products company that supplies branded clothing and all kinds of promotional items around the island and overseas.",
+  phone: {
+    display: "071 111 5445",
+    tel: "+94711115445",
+  },
+  facebook: "https://www.facebook.com/profile.php?id=61591696298829",
+} as const;

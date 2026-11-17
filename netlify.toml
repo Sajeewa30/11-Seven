@@ -1,0 +1,4 @@
+# Netlify runs the package.json build script (next build --webpack).
+# Turbopack production builds failed on 17 Nov 2026 while processing the Google Fonts; webpack builds cleanly.
+[build]
+  command = "npm run build"

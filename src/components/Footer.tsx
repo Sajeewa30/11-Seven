@@ -71,6 +71,11 @@ export default function Footer() {
                 </li>
               ))}
               <li>
+                <Link href="/#skincare" className={colLink}>
+                  Skincare &amp; beauty
+                </Link>
+              </li>
+              <li>
                 <Link href="/#services" className={colLink}>
                   Printing &amp; services
                 </Link>
