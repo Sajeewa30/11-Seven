@@ -134,7 +134,16 @@ export default function Footer() {
 
         <div className="mt-14 flex flex-col gap-3 border-t border-gold-600/30 pt-8 text-sm text-ink-dim sm:flex-row sm:items-center sm:justify-between">
           <p>
-            © {new Date().getFullYear()} {site.legalName}. All rights reserved.
+            © {new Date().getFullYear()} {site.legalName}. All rights reserved. Developed by{" "}
+            <a
+              href="https://www.linkedin.com/in/sajeewa-dilshan-762a3329b/"
+              target="_blank"
+              rel="noopener"
+              className="font-semibold text-maroon-700 hover:underline"
+            >
+              Sajeewa Dilshan
+            </a>
+            .
           </p>
           <p>
             <Link href="/school-season" className="font-semibold text-maroon-700 hover:underline">

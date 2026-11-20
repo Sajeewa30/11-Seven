@@ -9,14 +9,9 @@ export const site = {
   legalName: "11-seven Stationery & Phone Accessories",
   tagline: "Stationery · Phone Accessories · Gym Supplements",
   /** Live address of the site — used for canonical URLs, the sitemap and link-preview images.
-   *  On Netlify, `URL` is the site's primary domain at build time: the netlify.app address until
-   *  11seven.lk is set as the primary domain, then https://11seven.lk automatically.
-   *  NEXT_PUBLIC_SITE_URL overrides it on any host. */
-  url:
-    process.env.NEXT_PUBLIC_SITE_URL ||
-    process.env.URL ||
-    (process.env.VERCEL_PROJECT_PRODUCTION_URL ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}` : "") ||
-    "https://11seven.lk",
+   *  11seven.lk went live on Netlify on 20 Nov 2026, so it is fixed here (previews and the
+   *  netlify.app address also point search engines at it). NEXT_PUBLIC_SITE_URL overrides it. */
+  url: process.env.NEXT_PUBLIC_SITE_URL || "https://11seven.lk",
   description:
     "11-seven is a stationery, mobile phone accessories, gym supplements and skincare shop at No. 204 Kandy Road, Wattegama, with printing, photo and reload services. Open every day, 8 am – 11 pm.",
   address: {

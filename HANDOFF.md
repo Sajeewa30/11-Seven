@@ -2,6 +2,14 @@
 
 ## 1. Domain: 11seven.lk
 
+**Live since 20 Nov 2026.** The domain's DNS is run by Namebirth (register.lk; nameservers sun/moon.namebirth.com),
+where the client's account holds it. The `A` record for `11seven.lk` points to Netlify (`75.2.60.5`); `www` is a CNAME
+to `11seven.lk`, which also reaches Netlify (changing it to `11-seven.netlify.app` is optional). Netlify issued a
+free Let's Encrypt certificate for both names and renews it automatically; `www` and `http` redirect to
+`https://11seven.lk`. The domain's MX (mail) record still points at Namebirth. The site address is fixed to
+`https://11seven.lk` in `src/data/site.ts`. The notes below are the history of getting here.
+
+
 The client's domain is **11seven.lk**, registered for one year (renew before it expires in about November 2027).
 (117.lk, mentioned at first, is a restricted name at the .lk registry and can't be registered.)
 

@@ -56,10 +56,7 @@ surfaces, or its lightest shades on maroon. Checked with axe-core: no contrast o
 
 The live domain is **11seven.lk** (see `HANDOFF.md` for connecting it).
 
-- **Netlify (current):** deploys from `main`. The site address used for canonical URLs, the sitemap and link-preview
-  images comes from Netlify's `URL` variable, which is the primary domain. Once `11seven.lk` is the primary domain,
-  redeploy and everything switches over by itself.
-- **Vercel (alternative):** import the repo (framework preset Next.js). It uses `VERCEL_PROJECT_PRODUCTION_URL`
-  automatically.
-- On any host, setting `NEXT_PUBLIC_SITE_URL` (e.g. `https://11seven.lk`) overrides the above. With none of these set,
-  the site defaults to `https://11seven.lk`.
+- **Netlify (live since 20 Nov 2026):** deploys from `main` to https://11seven.lk. Every push to `main` is a
+  production deploy.
+- The site address used for canonical URLs, the sitemap and link-preview images is fixed to `https://11seven.lk` in
+  `src/data/site.ts`. Set `NEXT_PUBLIC_SITE_URL` to override it on another host.

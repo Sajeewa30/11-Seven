@@ -89,7 +89,7 @@ export default function SchoolSeasonPage() {
               {schoolSeason.window}
             </p>
             <h1 className="mt-6 animate-rise font-display text-[2.6rem] font-medium leading-[1.06] [animation-delay:80ms] sm:text-6xl">
-              Ready for the new school year? Pay in 3 with KOKO.
+              Ready for the new school year? Pay in 3 with <span className="text-gold-300">KOKO</span>.
             </h1>
             <p className="mt-6 max-w-xl animate-rise text-lg leading-relaxed text-cream-muted [animation-delay:160ms]">
               Bring your child’s book list to 11-seven this November and December. We’ll pack everything they need for

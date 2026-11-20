@@ -25,8 +25,9 @@ const sizes: Record<Size, string> = {
   lg: "h-14 px-9 text-[0.95rem]",
 };
 
+// Full width on phones (below 640px) so buttons are easy to tap; natural width from tablets up.
 const baseClass =
-  "inline-flex items-center justify-center gap-2.5 rounded-full font-semibold transition-all duration-300 ease-out select-none disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:shadow-none";
+  "inline-flex w-full items-center justify-center gap-2.5 rounded-full font-semibold sm:w-auto transition-all duration-300 ease-out select-none disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:shadow-none";
 
 type CommonProps = {
   variant?: Variant;
