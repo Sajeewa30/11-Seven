@@ -69,12 +69,12 @@ one working day of payment. "Requested" means it hasn't finished that chain. To 
 - Opening hours: every day, 8.00 am – 11.00 pm
 - Phones: 081 222 3912 (shop landline) and 077 210 3832 (mobile and WhatsApp). The old 071 491 3832 from the invitation has been removed
 - Email: elevensevencommunication@gmail.com
-- TikTok: https://www.tiktok.com/@11seven46 · Facebook: https://www.facebook.com/profile.php?id=61590578387934
+- TikTok: https://www.tiktok.com/@11seven_0772103832 (updated 22 Nov 2026; the old @11seven46 was wrong) · Instagram: https://www.instagram.com/11seven.lk/ (added 22 Nov 2026) · Facebook: https://www.facebook.com/profile.php?id=61590578387934
 - The client's 5 policies (privacy, returns, terms, delivery, payments) are translated from Sinhala on `/policies`
 - Services: printing, photo/mug/T-shirt printing, banners, wedding and visiting cards, typesetting, awards, reloads and
   bill payments, plus island-wide courier delivery. These are now listed on the home page and in the FAQ
 
-The QR codes on the Contact page (`public/images/qr-tiktok.svg`, `public/images/qr-facebook.svg`) were regenerated to point straight to
+The QR codes on the Contact page (`public/images/qr-tiktok.svg`, `qr-instagram.svg`, `qr-facebook.svg`) point straight to
 the TikTok and Facebook pages. The Facebook QR the client sent goes through me-qr.com, a third-party redirect that can expire.
 
 ## 3. Images (added 8 Nov 2026)

@@ -40,12 +40,13 @@ export const site = {
   /** Social profile links — any left empty are hidden. */
   social: {
     facebook: "https://www.facebook.com/profile.php?id=61590578387934",
-    instagram: "",
-    tiktok: "https://www.tiktok.com/@11seven46",
+    instagram: "https://www.instagram.com/11seven.lk/",
+    tiktok: "https://www.tiktok.com/@11seven_0772103832",
   },
   socialHandles: {
     facebook: "11-seven",
-    tiktok: "@11seven46",
+    instagram: "@11seven.lk",
+    tiktok: "@11seven_0772103832",
   },
   openedOn: "June 2026",
   grandOpening: "Thursday, 18 June 2026",

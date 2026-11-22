@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import PageHero from "@/components/PageHero";
 import Reveal from "@/components/Reveal";
-import { ArrowUpRight, Clock, Facebook, Mail, MapPin, PhoneCall, TikTok, WhatsApp } from "@/components/Icons";
+import { ArrowUpRight, Clock, Facebook, Instagram, Mail, MapPin, PhoneCall, TikTok, WhatsApp } from "@/components/Icons";
 import { site } from "@/data/site";
 
 export const metadata: Metadata = {
@@ -60,6 +60,13 @@ const follow = [
     handle: site.socialHandles.facebook,
     href: site.social.facebook,
     qr: "/images/qr-facebook.svg",
+  },
+  {
+    Icon: Instagram,
+    name: "Instagram",
+    handle: site.socialHandles.instagram,
+    href: site.social.instagram,
+    qr: "/images/qr-instagram.svg",
   },
 ].filter((f) => f.href);
 
@@ -131,7 +138,7 @@ export default function ContactPage() {
                       <f.Icon size={22} />
                     </span>
                     <p className="mt-5 text-xs font-bold uppercase tracking-[0.18em] text-gold-700">{f.name}</p>
-                    <p className="mt-1 text-lg font-bold text-ink">{f.handle}</p>
+                    <p className="mt-1 text-lg font-bold text-ink [overflow-wrap:anywhere]">{f.handle}</p>
                     <a
                       href={f.href}
                       target="_blank"
