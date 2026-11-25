@@ -116,6 +116,8 @@ _Confirmed 8 Nov 2026: the shop sells gym supplements. Google Maps link: https:/
   `public/images/phone-otg-reader.jpg` and `phone-cases.jpg`, cropped from the phone screenshots.
 - **Home → Skincare & beauty** (`/#skincare`): SADOER Collagen Sakura gel, Chamomile face mask and Vitamin C gel, from
   the client's Meta AI images (`public/images/skincare-*.jpg`). Edit names and text in `skincare` in `src/data/site.ts`.
+  Since 25 Nov 2026 the section is named **SachiSkin**, with its own number 070 772 2375 (a call button; WhatsApp not
+  confirmed, so no WhatsApp link). Edit both in `skincareBrand` in `src/data/site.ts`.
 - **Build:** `npm run build` now runs `next build --webpack`, and `netlify.toml` makes Netlify use it. On 17 Nov 2026
   the Turbopack production build failed on the Google Fonts ("next/font/google queries have exactly one entry"), even
   for the 12 Nov code that built fine then. The webpack build is clean. Switch back once a newer Next.js fixes it.

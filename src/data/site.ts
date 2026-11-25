@@ -165,6 +165,15 @@ export const skincare = [
   },
 ];
 
+/** SachiSkin — the name of the skincare side of the shop, with its own contact number (calls). */
+export const skincareBrand = {
+  name: "SachiSkin",
+  phone: {
+    display: "070 772 2375",
+    tel: "+94707722375",
+  },
+} as const;
+
 /** FORGE creations — makes the custom clothing shown on the Clothing page. Orders go to FORGE directly. */
 export const forge = {
   name: "FORGE creations",
